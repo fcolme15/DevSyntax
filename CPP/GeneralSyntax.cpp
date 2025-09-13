@@ -12,61 +12,74 @@
 #include <condition_variable>
 #include <thread>
 
-
+//Set the namespace 
 using std::cout;
 using std::cin;
 using std::string;
 
-struct point2D{ //Base struct
+//Base struct
+struct point2D{ 
     float y;
     float x;
 
+    //Constructor 1
     point2D(){
         this->y = 0;
         this->x = 0;
     }
-
+     
+    //Constructor 2
     point2D(float y, float x){
         this->y = y;
         this->x = x;
     }
 
+    //Virtual function
     void virtual printValues(){
         cout << "X: " << this->x << "Y: " << this->y << std::endl;
     }
 };
 
-struct point3D : point2D{ //Inheritance Struct
+//Inheritance Struct
+struct point3D : point2D{ 
     float z;
 
+    //Constructor 1 calling base class constructor
     point3D()
         :point2D() {
             this->z = 0;
     }
 
+    //Constructor 2 calling base class constructor
     point3D(float y, float x, float z)
         :point2D(y, x) {
             this->z = z;
     }
 
+    //Overriding base struct virtual function
     void printValues() override {
         cout << "X: " << this->x << "Y: " << this->y << "Z: " << this->z << std::endl;
     }
 };
 
-class BaseCar{ //Base class
+//Base class - Cannot be created as it contians a pure virtual function (Only for inheritance)
+class BaseCar{ 
     public:
+        //Constructor 
         BaseCar(int licensePlate, int carId){
             this->licensePlate = licensePlate;
             this->carId = carId;
         }
 
-        void virtual honk() = 0; //Pure virtual
+        //Pure virtual function
+        void virtual honk() = 0; 
 
-        void virtual drive(){ //Virtual
+        //Virtual function
+        void virtual drive(){ 
             cout << "Car is driving! " << std::endl;
         }
 
+        //Member functions
         int accelerationPerSecond(){
             return 5;
         }
@@ -75,60 +88,84 @@ class BaseCar{ //Base class
             return carId;
         }
 
+        //Virtual destructor set as defalt
         virtual ~BaseCar() = default;
-    protected:
+    
+    //Inheritance classes gets this as if it was part of its private members
+    protected: 
         int licensePlate;
 
+    //Inheritance classes do not get access to these. Only through getters and setters.
     private:
         int carId;
 };
 
-class ElectricCar : public BaseCar{ //Inheritance 
+//Inheritance class
+class ElectricCar : public BaseCar{ 
     public:
-        ElectricCar(int licensePlate, int carId) //Parent constructor
+        //Constructor 1 calling the base class constructor
+        ElectricCar(int licensePlate, int carId) 
             :BaseCar(licensePlate, carId){
                 battery = 0;
         }
 
-        ElectricCar(int licensePlate, int carId, int battery) //Parent and own constructor
+        //Constructor 2 calling the base class constructor
+        ElectricCar(int licensePlate, int carId, int battery)
             :BaseCar(licensePlate, carId){
                 this->battery = battery;
         }
-        void honk() override { //Override pure virtual
+        
+        //Overriding base class pure virtual function
+        void honk() override { 
             cout << "Beep Boop" << std::endl;
         }
 
-        void drive() override { //Override function
+        //Overriding base class virtual function
+        void drive() override {
             cout << "Electric Car is driving! " << std::endl;
         }
 
-        void chargeCar(){
-            battery = 100;
-        }
-
-        int getLicensePlate() const { //Const -> cannot change any class values, yes locals
+        //Member function using const -> Cannot change class vars, but yes to local vars
+        int getLicensePlate() const { 
             return licensePlate;
         }
 
+        //Overloaded operator for class
         bool operator+ (const ElectricCar & rhs){ //Overloaded operators: +, -, ==, >, <, =
             return true;
         }
 
+        //Overloaded ostream output stream overload. (EX: cout << classVar)
         friend std::ostream& operator<<(std::ostream& os, const ElectricCar money) { //Output stream overload
             os << "Electric Car";
             return os;
         }
 
+        //Default desctructor
         ~ElectricCar() override = default;
+
     protected:
 
     private:
         int battery;
 };
 
-enum class Weather{
+//Enum class declaration of type int
+//Different that this style needs explicit casting for type safety and namespace/name conflicts
+enum class Weather : int {
     sunny, rainy, cloudy, cold, snowy
 };
+
+/*Bitwise overload for the enum. Identified at run time using the ADL table 
+with the correct argument positions in the same namespace scope*/
+constexpr Weather operator|(Weather a, Weather b) {
+    return static_cast<Weather>(
+        static_cast<int>(a) | static_cast<int>(b)
+    );
+}
+
+template <typename T, Weather w>
+void sampleTemplateFunction();
 
 void sampleLoops();
 
@@ -179,6 +216,10 @@ int main (){
 
     sampleSmartPointers();
 
+    //Specify the template values at the call time so that it can make compile time optimizations
+    sampleTemplateFunction<int, Weather::sunny>();
+    sampleTemplateFunction<double, Weather::cloudy>();
+
     return 0;
 }
 
@@ -219,8 +260,10 @@ void sampleLoops(){
 }
 
 void sampleEnum(){
-    //EnumToString
+    //Declaring an enum
     Weather weather = Weather::rainy;
+
+    //Enum to string conversion
     switch(weather){
         case Weather::sunny:
             cout << "Sunny" << std::endl;
@@ -239,8 +282,23 @@ void sampleEnum(){
             break;
     }
 
-    //Get the int from enum
-    cout << "Value of enum " << static_cast<int>(weather) << std::endl;
+    //Get the integer value of the enum var
+    int enumValue = static_cast<int>(weather);
+
+    //Static cast from integer to enum
+    /*If the enum doesn't have a value for the given number then it just give a random value 
+    with no runtime error. Creating a function that returns nullopt is better to not get random values*/
+    Weather oldWeather = static_cast<Weather>(enumValue);
+    
+    //Looping through enum values:
+    for (int i = 0; i < static_cast<int>(Weather::snowy); i++){
+        Weather w = static_cast<Weather>(i);
+    }
+}
+
+template <typename T, Weather w>
+void templateFunction(){
+
 }
 
 void sampleConst(const int& y){ //Const parameter so can't be chaged
