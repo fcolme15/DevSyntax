@@ -1,4 +1,5 @@
 #include "declarations/enum.h"
+#include "declarations/struct.h"
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -18,53 +19,6 @@ using std::cout;
 using std::endl;
 using std::cin;
 using std::string;
-
-/*==========START STRUCT==========*/
-//Base struct
-struct point2D{ 
-    float y;
-    float x;
-
-    //Constructor 1
-    point2D(){
-        this->y = 0;
-        this->x = 0;
-    }
-     
-    //Constructor 2
-    point2D(float y, float x){
-        this->y = y;
-        this->x = x;
-    }
-
-    //Virtual function
-    void virtual printValues(){
-        cout << "X: " << this->x << "Y: " << this->y << std::endl;
-    }
-};
-
-//Inheritance Struct
-struct point3D : point2D{ 
-    float z;
-
-    //Constructor 1 calling base class constructor
-    point3D()
-        :point2D() {
-            this->z = 0;
-    }
-
-    //Constructor 2 calling base class constructor
-    point3D(float y, float x, float z)
-        :point2D(y, x) {
-            this->z = z;
-    }
-
-    //Overriding base struct virtual function
-    void printValues() override {
-        cout << "X: " << this->x << "Y: " << this->y << "Z: " << this->z << std::endl;
-    }
-};
-/*==========END STRUCT==========*/
 
 /*==========START CLASS==========*/
 //Base class - Cannot be created as it contians a pure virtual function (Only for inheritance)
@@ -258,9 +212,15 @@ int main (){
         std::cout << "C++20 supported!" << std::endl;
     #endif
 
+    //Implemented in components:
+    sampleEnum();
+
+    sampleStruct();
+    //Not implemented in components:
+
     sampleLoops();
     
-    sampleEnum();
+    
     
     int y = 10;
     sampleConst(y);
