@@ -1,3 +1,4 @@
+#include "declarations/enum.h"
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -155,22 +156,6 @@ class ElectricCar : public BaseCar{
 };
 /*==========END CLASS==========*/
 
-/*==========START ENUM==========*/
-//Enum class declaration of type int
-//Different that this style needs explicit casting for type safety and namespace/name conflicts
-enum class Weather : int {
-    sunny, rainy, cloudy, cold, snowy
-};
-
-/*Bitwise overload for the enum. Identified at run time using the ADL table 
-with the correct argument positions in the same namespace scope*/
-constexpr Weather operator|(Weather a, Weather b) {
-    return static_cast<Weather>(
-        static_cast<int>(a) | static_cast<int>(b)
-    );
-}
-/*==========END ENUM==========*/
-
 /*==========START TEMPLATE==========*/
 //Function is a runtime time deduction of the type T and U, but U has a default.
 template <typename T, typename U = int>
@@ -243,8 +228,6 @@ templateFunctionIntegralOnly(T value){
 void sampleTemplateFunctions();
 
 void sampleLoops();
-
-void sampleEnum();
 
 void sampleConst(const int& y);
 
@@ -344,43 +327,6 @@ void sampleLoops(){
         }
     }
     while(input != "q");
-}
-
-void sampleEnum(){
-    //Declaring an enum
-    Weather weather = Weather::rainy;
-
-    //Enum to string conversion
-    switch(weather){
-        case Weather::sunny:
-            cout << "Sunny" << std::endl;
-            break;
-        case Weather::rainy:
-            cout << "Rainy" << std::endl;
-            break;
-        case Weather::cloudy:
-            cout << "Cloudy" << std::endl;
-            break;
-        case Weather::cold:
-            cout << "Cold" << std::endl;
-            break;
-        case Weather::snowy:
-            cout << "Snowy" << std::endl;
-            break;
-    }
-
-    //Get the integer value of the enum var
-    int enumValue = static_cast<int>(weather);
-
-    //Static cast from integer to enum
-    /*If the enum doesn't have a value for the given number then it just give a random value 
-    with no runtime error. Creating a function that returns nullopt is better to not get random values*/
-    Weather oldWeather = static_cast<Weather>(enumValue);
-    
-    //Looping through enum values:
-    for (int i = 0; i < static_cast<int>(Weather::snowy); i++){
-        Weather w = static_cast<Weather>(i);
-    }
 }
 
 void sampleTemplateFunctions(){
