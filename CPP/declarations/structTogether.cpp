@@ -46,8 +46,9 @@ struct point3D : point2D{
 };
 
 void sampleStruct(){
-    std::cout << "Running Struct Sample" << std::endl << std::endl ;
+    std::cout << "Running Struct Sample" << std::endl << std::endl;
 
+    std::cout << "Instantiating base struct constructors" << std::endl;
     //Constructor 1, no parameters
     point2D A = point2D();
 
@@ -55,9 +56,11 @@ void sampleStruct(){
     point2D B = point2D(10, 5);
 
     //Print the values of 2d points
+    std::cout << "Print values of base struct calling member function" << std::endl;
     A.printValues();
     B.printValues();
 
+    std::cout << "Instantiating child struct constructors" << std::endl;
     //Constructor 1, no parameters
     point3D C = point3D();
 
@@ -65,6 +68,7 @@ void sampleStruct(){
     point3D D = point3D(10, 5, 15);
 
     //Print the values of 3d points
+    std::cout << "Print values of child struct calling member function" << std::endl;
     C.printValues();
     D.printValues();
 }

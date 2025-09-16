@@ -1,5 +1,6 @@
 #include "declarations/enum.h"
 #include "declarations/struct.h"
+#include "declarations/class.h"
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -19,96 +20,6 @@ using std::cout;
 using std::endl;
 using std::cin;
 using std::string;
-
-/*==========START CLASS==========*/
-//Base class - Cannot be created as it contians a pure virtual function (Only for inheritance)
-class BaseCar{ 
-    public:
-        //Constructor 
-        BaseCar(int licensePlate, int carId){
-            this->licensePlate = licensePlate;
-            this->carId = carId;
-        }
-
-        //Pure virtual function
-        void virtual honk() = 0; 
-
-        //Virtual function
-        void virtual drive(){ 
-            cout << "Car is driving! " << std::endl;
-        }
-
-        //Member functions
-        int accelerationPerSecond(){
-            return 5;
-        }
-
-        int getCarId(){
-            return carId;
-        }
-
-        //Virtual destructor set as defalt
-        virtual ~BaseCar() = default;
-    
-    //Inheritance classes gets this as if it was part of its private members
-    protected: 
-        int licensePlate;
-
-    //Inheritance classes do not get access to these. Only through getters and setters.
-    private:
-        int carId;
-};
-
-//Inheritance class
-class ElectricCar : public BaseCar{ 
-    public:
-        //Constructor 1 calling the base class constructor
-        ElectricCar(int licensePlate, int carId) 
-            :BaseCar(licensePlate, carId){
-                battery = 0;
-        }
-
-        //Constructor 2 calling the base class constructor
-        ElectricCar(int licensePlate, int carId, int battery)
-            :BaseCar(licensePlate, carId){
-                this->battery = battery;
-        }
-        
-        //Overriding base class pure virtual function
-        void honk() override { 
-            cout << "Beep Boop" << std::endl;
-        }
-
-        //Overriding base class virtual function
-        void drive() override {
-            cout << "Electric Car is driving! " << std::endl;
-        }
-
-        //Member function using const -> Cannot change class vars, but yes to local vars
-        int getLicensePlate() const { 
-            return licensePlate;
-        }
-
-        //Overloaded operator for class
-        bool operator+ (const ElectricCar & rhs){ //Overloaded operators: +, -, ==, >, <, =
-            return true;
-        }
-
-        //Overloaded ostream output stream overload. (EX: cout << classVar)
-        friend std::ostream& operator<<(std::ostream& os, const ElectricCar money) { //Output stream overload
-            os << "Electric Car";
-            return os;
-        }
-
-        //Default desctructor
-        ~ElectricCar() override = default;
-
-    protected:
-
-    private:
-        int battery;
-};
-/*==========END CLASS==========*/
 
 /*==========START TEMPLATE==========*/
 //Function is a runtime time deduction of the type T and U, but U has a default.
@@ -216,6 +127,8 @@ int main (){
     sampleEnum();
 
     sampleStruct();
+
+    sampleClass();
     //Not implemented in components:
 
     sampleLoops();

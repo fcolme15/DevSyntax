@@ -12,6 +12,7 @@ constexpr Weather operator|(Weather a, Weather b) {
 }
 
 void sampleEnum(){
+    std::cout << std::endl;
     std::cout << "Running Enum Sample" << std::endl << std::endl;
 
     //Declaring an enum
