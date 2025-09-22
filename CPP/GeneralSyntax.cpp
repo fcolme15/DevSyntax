@@ -1,7 +1,10 @@
+//Includes for .h file declarations
 #include "declarations/template.h"
 #include "declarations/enum.h"
 #include "declarations/struct.h"
 #include "declarations/class.h"
+
+//General Includes
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -21,7 +24,6 @@ using std::cout;
 using std::endl;
 using std::cin;
 using std::string;
-
 
 void sampleLoops();
 
@@ -60,11 +62,11 @@ int main (){
     sampleStruct();
 
     sampleClass();
+    
+    sampleTemplateFunctions();
     //Not implemented in components:
 
     sampleLoops();
-    
-    
     
     int y = 10;
     sampleConst(y);
@@ -87,8 +89,6 @@ int main (){
 
     sampleSmartPointers();
      
-    sampleTemplateFunctions();
-
     return 0;
 }
 
