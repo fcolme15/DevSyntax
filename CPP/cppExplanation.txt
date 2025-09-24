@@ -1,0 +1,19 @@
+There are some differences between the components parsed into .cpp & .h files vs having it all in one .cpp.
+I will make note of the main differences and which to follow:
+
+Same:
+- Template functions are functionaly the same in both as the template needs the whole definition all together.
+Because of this then the .h file basically has everything at one plain .cpp would
+- Enum is the same so there is no single .cpp version
+
+Different:
+- Classes & Structs: Different as you need to remove certain keywords that only belong in the .h section.
+Keywords: virtual, override, static, const, = 0(pure virtual), = default, = delete, friend.
+
+
+Review files (Some topics look confusing trying to read the .h and .cpp so this is which to choose):
+- Classes: classTogether.cpp, some differences, but mainly just too messy separated
+- Struct: structTogether.cpp, some differences, but mainly just too messy separated
+- Template: Any
+- Enum: enum.h and enum.cpp
+- 
