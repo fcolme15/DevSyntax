@@ -4,30 +4,103 @@
 #include <string>
 #include <unordered_map>
 
-void sampleMap(){
+/*DIFFERENCES, MAP VS UNORDERED MAP:
+- Map is a Red-Black tree(Balanced binary search tree)
+    - Insert/Find/Delete: O(log n)
+    - Slower on avg but more consistent
+    - Lower memory
+
+- Unordered Map is a Hash table
+    - Insert/Find/Delte O(1) avg, worst case O(n)
+    - Faster on average but can have collision issues
+    - Higher memory
+*/
+
+void sampleMaps(){
+    //Syntax for both types of maps is the exact same
     std::map<std::string, int> m;
     std::unordered_map<std::string, int> um;
     int val = 0;
-    //Insert elements
+
+    /*Inserting elements:*/
+
+    //Index notation:
+    //--Overwrites the element if it already exists
     m["apple"] = 5;
+
+    //Insert:
+    //--Does not overwrite existing keys
     m.insert({"orange", 8});
 
-    //Access 
+    //Emplace: 
+    //--Constructs directly in th emap not making temp object like insert -> more efficient that insert
+    //--Better for like when values are classes/objects. Same for when integers.
+    m.emplace("orange", 10);
+
+    //Try Emplace
+    //Emplace but only insert if the key doesn't exist
+    m.try_emplace("grape", 23);
+
+    /*Access values*/
+    //At:
+    //Always check if exists before using at
+    //--Throws out of range exception if key does not exist
     val = m.at("apple");
 
-    //Iteration
-    for (auto& [key, val] : m){
+    /*Iteration*/
+    for (auto& [key, val] : m){ //Preparesed
         std::cout << key << " -> " << val << std::endl;
     }
 
-    //Find
-    if (m.find("banana") == m.end()){
+    for (auto& val : m){ //Object
+        std::cout << val.first << " -> " << val.second << std::endl;
+    }
+
+    /*Findind an element:*/
+
+    //Find:
+    //--Returns iterator object with vars first and second:
+    //----EX: it->first & it->second
+    //--Returns .end() if the item was not found
+    auto item = m.find("banana");
+    if (item == m.end()){
         std::cout << "No banana found" << std::endl;
     }
 
-    //Erase
+    //Count:
+    //--Returns 1 if found and 0 if not found
+    int found = m.count("banana");
+    if (found == 1){
+        std::cout << "Item found" << std::endl;
+    }
+
+    //Contains:
+    //--Returns a bolean if it contains the element of not
+    bool found1 = m.contains("apple");
+    if (found1){
+        std::cout << "Item found" << std::endl;
+
+    }
+
+    /*Erasing element*/
+
+    //Giving it the key
     m.erase("orange");
 
-    //Size
+    //Giving it the iterator object of an already found key
+    auto found2 = m.find("apple");
+    m.erase(found2); 
+
+
+    /*Getting the size or if empty*/
+
+    //Size:
     val = m.size();
+
+    //Empty:
+    //--Returns true if empty else false
+    bool found3 = m.empty();
+
+    /*Clearing a map*/
+    m.clear();
 }

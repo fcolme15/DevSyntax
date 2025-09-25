@@ -1,9 +1,11 @@
-//Includes for .h file declarations
+//Includes for .h files in declarations
 #include "declarations/template.h"
 #include "declarations/enum.h"
 #include "declarations/struct.h"
 #include "declarations/class.h"
 
+//Includes for .h files in datatypes
+#include "datatypes/maps.h"
 //General Includes
 #include <iostream>
 #include <string>
@@ -37,8 +39,6 @@ void sampleArray();
 
 void sampleVectorStack();
 
-void sampleMap();
-
 void sampleSet();
 
 void sampleDeque();
@@ -64,6 +64,8 @@ int main (){
     sampleClass();
     
     sampleTemplateFunctions();
+    
+    sampleMaps();
     //Not implemented in components:
 
     sampleLoops();
@@ -79,7 +81,7 @@ int main (){
 
     sampleVectorStack();
 
-    sampleMap();
+    
 
     sampleSet();
 
@@ -262,33 +264,6 @@ void sampleVectorStack(){
     stack.pop_back();
 }
 
-void sampleMap(){
-    std::map<string, int> m;
-    std::unordered_map<string, int> um;
-    int val = 0;
-    //Insert elements
-    m["apple"] = 5;
-    m.insert({"orange", 8});
-
-    //Access 
-    val = m.at("apple");
-
-    //Iteration
-    for (auto& [key, val] : m){
-        cout << key << " -> " << val << std::endl;
-    }
-
-    //Find
-    if (m.find("banana") == m.end()){
-        cout << "No banana found" << std::endl;
-    }
-
-    //Erase
-    m.erase("orange");
-
-    //Size
-    val = m.size();
-}
 
 void sampleSet(){
     std::set<int> s;

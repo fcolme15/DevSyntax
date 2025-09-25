@@ -4,6 +4,6 @@
 #include <iostream>
 #include <map>
 
-void sampleMap();
+void sampleMaps();
 
 #endif
