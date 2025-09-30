@@ -2,7 +2,17 @@
 #include <iostream>
 #include <string>
 
+void insertString();
 
+void deleteFromString();
+
+void accessingString();
+
+void checkingSizeString();
+
+void stringConversions();
+
+void stringSearch();
 
 void sampleString(){
     std::cout << std::endl << "Starting std::string sample usage: " << std::endl;
