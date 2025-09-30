@@ -19,15 +19,15 @@
     - Higher memory
 */
 
-void extractingElementInSet();
+void extractingElementInSets();
 
 void combiningSets();
 
 void insertingElements();
 
-void findingAndErasingElements();
+void findingAndErasingSet();
 
-void gettingUpperOrLowerValues();
+void gettingUpperOrLowerValuesSets();
 
 void sampleSet(){
     std::cout << std::endl << "General syntax for both Sets and Unordered Sets" << std::endl;
@@ -50,18 +50,18 @@ void sampleSet(){
 
     std::cout << "Covering: Extracting, combining, inserting, finding, erasing, upper/lower bounds" << std::endl;
     
-    extractingElementInSet();
+    extractingElementInSets();
 
     combiningSets();
 
     insertingElements();
 
-    findingAndErasingElements();
+    findingAndErasingSet();
 
-    gettingUpperOrLowerValues();
+    gettingUpperOrLowerValuesSets();
 }
 
-void extractingElementInSet(){
+void extractingElementInSets(){
     std::set<int> set1 = {1, 2, 3, 4, 5};
     std::set<int> set2 = {10, 20, 30};
 
@@ -105,7 +105,7 @@ void insertingElements(){
     s.emplace(15); 
 }
 
-void findingAndErasingElements(){
+void findingAndErasingSet(){
     std::set<int> s = {5,6,7,8,9,10,11,12,13,14,15};
     //Check existance of value in set. Returns 1 or 0
     bool found = s.count(7);
@@ -119,7 +119,7 @@ void findingAndErasingElements(){
     s.erase(8); //Remove value
 }
 
-void gettingUpperOrLowerValues(){
+void gettingUpperOrLowerValuesSets(){
     std::set<int> s = {5,6,7,8,9,10,11,12,13,14,15};
 
     //Set only not unordered set:

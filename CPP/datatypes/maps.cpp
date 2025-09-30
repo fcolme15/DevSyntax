@@ -16,6 +16,12 @@
     - Higher memory
 */
 
+void insertAndAccessingMaps();
+
+void findingAndErasingMaps();
+
+void iteratingMaps();
+
 void sampleMaps(){
     std::cout << std::endl << "General syntax for both Maps and Unordered Maps" << std::endl;
     
@@ -26,7 +32,7 @@ void sampleMaps(){
 
     insertAndAccessingMaps();
 
-    findingAndErasingElements();
+    findingAndErasingMaps();
 
     iteratingMaps();
     
@@ -67,7 +73,7 @@ void insertAndAccessingMaps(){
     int val = m.at("apple");
 }
 
-void findingAndErasingElements(){
+void findingAndErasingMaps(){
     std::map<std::string, int> m;
     m.insert({"orange", 8});
     m.insert({"apple", 9});
