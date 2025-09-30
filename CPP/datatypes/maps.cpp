@@ -17,13 +17,16 @@
 */
 
 void sampleMaps(){
+    std::cout << std::endl;
+    std::cout << "General syntax for both Maps and Unordered Maps" << std::endl;
+    
     //Syntax for both types of maps is the exact same
     std::map<std::string, int> m;
     std::unordered_map<std::string, int> um;
     int val = 0;
 
     /*Inserting elements:*/
-
+    std::cout << "Inserting and accessing values" << std::endl;
     //Index notation:
     //--Overwrites the element if it already exists
     m["apple"] = 5;
@@ -48,6 +51,8 @@ void sampleMaps(){
     val = m.at("apple");
 
     /*Iteration*/
+    std::cout << "Iterating values and finding elements" << std::endl;
+
     for (auto& [key, val] : m){ //Preparesed
         std::cout << key << " -> " << val << std::endl;
     }
@@ -83,7 +88,7 @@ void sampleMaps(){
     }
 
     /*Erasing element*/
-
+    std::cout << "Erasing, clearing, empty, and getting size" << std::endl;
     //Giving it the key
     m.erase("orange");
 
