@@ -34,6 +34,8 @@ void sampleSet(){
 
     std::set<int> s;
 
+    std::cout << "Covering: Looping, size, isEmpty, clear" << std::endl;
+
     //Loop through set
     for (auto & val : s){
         std::cout << " " << val << " ";
@@ -45,6 +47,8 @@ void sampleSet(){
     bool isEmpty = s.empty(); //Check if empty
 
     s.clear(); //Clear the whole set
+
+    std::cout << "Covering: Extracting, combining, inserting, finding, erasing, upper/lower bounds" << std::endl;
     
     extractingElementInSet();
 

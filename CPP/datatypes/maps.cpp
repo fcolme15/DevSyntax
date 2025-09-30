@@ -24,6 +24,23 @@ void sampleMaps(){
     std::unordered_map<std::string, int> um;
     int val = 0;
 
+    insertAndAccessingMaps();
+
+    findingAndErasingElements();
+
+    iteratingMaps();
+    
+    val = m.size(); //Size of map
+
+    bool found3 = m.empty(); //Checks if map is empty
+
+    m.clear(); //Clearing the map
+}
+
+void insertAndAccessingMaps(){
+    //Syntax for both types of maps is the exact same
+    std::map<std::string, int> m;
+
     /*Inserting elements:*/
     std::cout << "Inserting and accessing values" << std::endl;
     //Index notation:
@@ -47,20 +64,16 @@ void sampleMaps(){
     //At:
     //Always check if exists before using at
     //--Throws out of range exception if key does not exist
-    val = m.at("apple");
+    int val = m.at("apple");
+}
 
-    /*Iteration*/
-    std::cout << "Iterating values and finding elements" << std::endl;
-
-    for (auto& [key, val] : m){ //Preparesed
-        std::cout << key << " -> " << val << std::endl;
-    }
-
-    for (auto& val : m){ //Object
-        std::cout << val.first << " -> " << val.second << std::endl;
-    }
-
-    /*Findind an element:*/
+void findingAndErasingElements(){
+    std::map<std::string, int> m;
+    m.insert({"orange", 8});
+    m.insert({"apple", 9});
+    m.insert({"pineapple", 10});
+    
+    std::cout << "Finding elements and Erasing" << std::endl;
 
     //Find:
     //--Returns iterator object with vars first and second:
@@ -87,24 +100,27 @@ void sampleMaps(){
     }
 
     /*Erasing element*/
-    std::cout << "Erasing, clearing, empty, and getting size" << std::endl;
     //Giving it the key
     m.erase("orange");
 
     //Giving it the iterator object of an already found key
     auto found2 = m.find("apple");
     m.erase(found2); 
+}
 
+void iteratingMaps(){
+    std::map<std::string, int> m;
+    m.insert({"orange", 8});
+    m.insert({"apple", 9});
+    m.insert({"pineapple", 10});
+    
+    std::cout << "Iterating values" << std::endl;
 
-    /*Getting the size or if empty*/
+    for (auto& [key, val] : m){ //Preparesed
+        std::cout << key << " -> " << val << std::endl;
+    }
 
-    //Size:
-    val = m.size();
-
-    //Empty:
-    //--Returns true if empty else false
-    bool found3 = m.empty();
-
-    /*Clearing a map*/
-    m.clear();
+    for (auto& val : m){ //Object
+        std::cout << val.first << " -> " << val.second << std::endl;
+    }
 }
