@@ -17,8 +17,7 @@
 */
 
 void sampleMaps(){
-    std::cout << std::endl;
-    std::cout << "General syntax for both Maps and Unordered Maps" << std::endl;
+    std::cout << std::endl << "General syntax for both Maps and Unordered Maps" << std::endl;
     
     //Syntax for both types of maps is the exact same
     std::map<std::string, int> m;
