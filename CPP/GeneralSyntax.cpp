@@ -3,12 +3,16 @@
 #include "declarations/enum.h"
 #include "declarations/struct.h"
 #include "declarations/class.h"
+
 //Includes for .h files in datatypes
 #include "datatypes/maps.h"
 #include "datatypes/string.h"
 #include "datatypes/set.h"
 #include "datatypes/stack.h"
 #include "datatypes/deque.h"
+
+//Includes for .h files in fundamentals
+#include "fundamentals/loops.h"
 //General Includes
 #include <iostream>
 #include <string>
@@ -27,9 +31,6 @@ using std::cout;
 using std::endl;
 using std::cin;
 using std::string;
-
-void sampleLoops();
-
 void sampleConst(const int& y);
 
 void sampleCast();
@@ -65,9 +66,11 @@ int main (){
     sampleSet();
 
     sampleDeque();
-    //Not implemented in components:
     
     sampleLoops();
+    //Not implemented in components:
+    
+    
     
     int y = 10;
     sampleConst(y);
@@ -79,47 +82,6 @@ int main (){
     sampleSmartPointers();
      
     return 0;
-}
-
-void sampleLoops(){ 
-    int* arr = new int[10];
-    std::vector<int> v;
-    //For
-    for (int i = 0; i < 10; i++){
-        cout << i; 
-        arr[i] = i;
-        v.push_back(i);
-    }
-    cout << std::endl;
-
-    //Auto
-    for (auto & val : v){ //Reference
-        cout << val * 10;
-    }
-    cout << std::endl;
-
-    for (auto val : v){ //Makes copy for value
-        cout << val * 10;
-    }
-    cout << std::endl;
-
-    //While
-    int i = 0;
-    while (i != v.size()){
-        i++;
-    }
-
-    //Do While
-    std::string input;
-    int count = 0;
-    do{
-        cout << "input 'q': " << std::endl;
-        count += 1;
-        if (count == 5){
-            input = 'q';
-        }
-    }
-    while(input != "q");
 }
 
 void sampleConst(const int& y){ //Const parameter so can't be chaged
@@ -152,8 +114,6 @@ void sampleCast(){
     int n = 50;
     char* charPtr = reinterpret_cast<char*>(&n); //First byte of int as a char
 }
-
-
 
 void sampleArray(){
     int arr1[] = {1,2,3,4,5,6,7,8,9};
