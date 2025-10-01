@@ -3,14 +3,14 @@
 #include "declarations/enum.h"
 #include "declarations/struct.h"
 #include "declarations/class.h"
-
 //Includes for .h files in datatypes
 #include "datatypes/maps.h"
+#include "datatypes/string.h"
+#include "datatypes/set.h"
+#include "datatypes/stack.h"
 //General Includes
 #include <iostream>
 #include <string>
-#include <unordered_map>
-#include <map>
 #include <set>
 #include <deque>
 #include <vector>
@@ -33,17 +33,11 @@ void sampleConst(const int& y);
 
 void sampleCast();
 
-void sampleString();
-
 void sampleArray();
 
 void sampleVectorStack();
 
-void sampleSet();
-
 void sampleDeque();
-
-void sampleStack();
 
 void sampleSmartPointers();
 
@@ -66,8 +60,14 @@ int main (){
     sampleTemplateFunctions();
     
     sampleMaps();
-    //Not implemented in components:
 
+    sampleString();
+    
+    sampleStack();
+
+    sampleSet();
+    //Not implemented in components:
+    
     sampleLoops();
     
     int y = 10;
@@ -75,19 +75,11 @@ int main (){
 
     sampleCast();
 
-    sampleString();
-
     sampleArray();
 
     sampleVectorStack();
 
-    
-
-    sampleSet();
-
     sampleDeque();
-
-    sampleStack();
 
     sampleSmartPointers();
      
@@ -166,36 +158,7 @@ void sampleCast(){
     char* charPtr = reinterpret_cast<char*>(&n); //First byte of int as a char
 }
 
-void sampleString(){
-    string val1 = "Hello ", val2 = "World", val3 = "1", val4;
 
-    //Concatenation
-    val4 = val1 + val2 + "!!!";
-    cout << "String concat " << val4 << std::endl;
-
-    //String to int
-    int x = std::stoi(val3);
-    cout << "Str to int " << x << std::endl;
-
-    //Int to string
-    string val5 = std::to_string(x);
-    cout << "int to str " << val5 << std::endl;
-
-    //Find string index
-    int val6 = val4.find("World"); //Find string from start, idx
-    val6 = val4.rfind("World"); //Find string from end, idx
-    if (val6 == string::npos){
-        cout << "Substring not found" << std::endl;
-    }
-
-    //Find substring
-    string sub = val4.substr(6,11);
-
-    //Find first or last char of given chars
-    string s = "hello world";
-    cout << s.find_first_of("aeiou") << std::endl; // 1 ('e')
-    cout << s.find_last_of("aeiou") << std::endl;  // 7 ('o')    
-}
 
 void sampleArray(){
     int arr1[] = {1,2,3,4,5,6,7,8,9};
@@ -265,31 +228,6 @@ void sampleVectorStack(){
 }
 
 
-void sampleSet(){
-    std::set<int> s;
-    s.insert(5);
-    s.insert(6);
-    s.insert(7);
-    s.insert(8);
-    s.insert(9);
-
-    //Loop through set
-    for (auto & val : s){
-        cout << " " << val << " ";
-    }
-    cout << std::endl;
-
-    //Check existance
-    if (s.count(7)){
-        cout << "7 is in the set" << std::endl;
-    }
-
-    //Remove value
-    s.erase(8);
-     
-    //Get size
-    int sz = s.size();
-}
 
 void sampleDeque(){
     //Declaration
@@ -327,19 +265,6 @@ void sampleDeque(){
     int sz = dq.size();
 }   
 
-void sampleStack(){
-    std::stack<int> stack;
-
-    //Insert
-    stack.push(10);
-    stack.push(15);
-
-    //Get value at top of stack
-    cout << stack.top() << std::endl;
-
-    //Pop value from stack
-    stack.pop(); 
-}
 
 void sampleSmartPointers(){
     //unique_ptr -> Desctructor called when owner ptr is out of scope
