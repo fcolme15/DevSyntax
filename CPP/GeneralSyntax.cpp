@@ -8,6 +8,7 @@
 #include "datatypes/string.h"
 #include "datatypes/set.h"
 #include "datatypes/stack.h"
+#include "datatypes/deque.h"
 //General Includes
 #include <iostream>
 #include <string>
@@ -34,10 +35,6 @@ void sampleConst(const int& y);
 void sampleCast();
 
 void sampleArray();
-
-void sampleVectorStack();
-
-void sampleDeque();
 
 void sampleSmartPointers();
 
@@ -66,6 +63,8 @@ int main (){
     sampleStack();
 
     sampleSet();
+
+    sampleDeque();
     //Not implemented in components:
     
     sampleLoops();
@@ -76,10 +75,6 @@ int main (){
     sampleCast();
 
     sampleArray();
-
-    sampleVectorStack();
-
-    sampleDeque();
 
     sampleSmartPointers();
      
@@ -179,91 +174,6 @@ void sampleArray(){
     delete[] arr2;
 }
 
-void sampleVectorStack(){
-    //Vector usage
-    std::vector<std::vector<int>> grid;
-    std::vector<int> row1;
-    std::vector<int> row2;
-    std::vector<int> row3;
-    std::vector<int> extra;
-
-    for (int i = 0; i < 10; i++){
-        row1.push_back(i);
-        row2.push_back(i+10);
-        row3.push_back(i+100);
-        extra.push_back(i);
-    }
-    grid.push_back(row1);
-    grid.push_back(row2);
-    grid.push_back(row3);
-
-    //Get size of vector
-    int gridSize = 0, rowSize = 0;
-    gridSize = grid.size();
-    rowSize = row1.size();
-    cout << "Grid size: " << gridSize << " Row size: " << rowSize << std::endl;
-    cout << "Grid at (0,0): " << grid[0][0] << std::endl;
-
-    //Auto loop
-    for (auto val : row1){
-        cout << val << std::endl;
-    }
-
-    //Insert & Erase
-    extra.insert(extra.begin()+1, 99); //Insert value 99 at index 1
-    extra.erase(extra.begin() + 2); //Remove value at index 2
-
-    //Stack usage
-    std::vector<int> stack;
-    stack.push_back(0);
-    stack.push_back(1);
-    stack.push_back(2);
-    stack.push_back(3);
-    stack.push_back(4);
-    stack.push_back(5);
-
-    //Get value and pop off stack
-    int top = stack.back();
-    stack.pop_back();
-}
-
-
-
-void sampleDeque(){
-    //Declaration
-    std::deque<int> dq;
-
-    //Insert
-    dq.push_back(1);
-    dq.push_back(2);
-    dq.push_back(3);
-    dq.push_back(4);
-    dq.push_back(5);
-    dq.push_back(6);
-
-    //Loop through dq values
-    for (auto & val : dq){
-        cout << val << " ";
-    }
-    cout << std::endl;
-
-    //Get value at front or end
-    int front = dq.front();
-    int back = dq.back();
-
-    //Removing values from front and end
-    dq.pop_back();
-    dq.pop_front();
-
-    //Loop through elements
-    for (auto val : dq){
-        cout << val << " ";
-    }
-    cout << std::endl;
-
-    //Get the size
-    int sz = dq.size();
-}   
 
 
 void sampleSmartPointers(){
