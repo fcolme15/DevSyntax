@@ -10,6 +10,7 @@
 #include "datatypes/set.h"
 #include "datatypes/stack.h"
 #include "datatypes/deque.h"
+#include "datatypes/array.h"
 
 //Includes for .h files in fundamentals
 #include "fundamentals/loops.h"
@@ -34,8 +35,6 @@ using std::string;
 void sampleConst(const int& y);
 
 void sampleCast();
-
-void sampleArray();
 
 void sampleSmartPointers();
 
@@ -68,6 +67,8 @@ int main (){
     sampleDeque();
     
     sampleLoops();
+    
+    sampleArray();
     //Not implemented in components:
     
     
@@ -77,7 +78,7 @@ int main (){
 
     sampleCast();
 
-    sampleArray();
+    
 
     sampleSmartPointers();
      
@@ -114,27 +115,6 @@ void sampleCast(){
     int n = 50;
     char* charPtr = reinterpret_cast<char*>(&n); //First byte of int as a char
 }
-
-void sampleArray(){
-    int arr1[] = {1,2,3,4,5,6,7,8,9};
-    int* arr2 = new int[10];
-
-    for(int i = 0; i < 10; i++){
-        arr2[i] = i;
-    }
-
-    for (auto & val : arr1){ //Auto only valid for reg arrays not from 'new' as those are pointers
-        cout << val << std::endl;
-    }
-
-    int* ptr = arr2;
-    for (;ptr < arr2+10; ptr++){
-        cout << *ptr << std::endl;
-    }
-    delete[] arr2;
-}
-
-
 
 void sampleSmartPointers(){
     //unique_ptr -> Desctructor called when owner ptr is out of scope
