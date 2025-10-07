@@ -14,6 +14,11 @@
 
 //Includes for .h files in fundamentals
 #include "fundamentals/loops.h"
+#include "fundamentals/casting.h"
+#include "fundamentals/const.h"
+#include "fundamentals/pointers.h"
+#include "fundamentals/namespace.h"
+
 //General Includes
 #include <iostream>
 #include <string>
@@ -26,15 +31,6 @@
 #include <shared_mutex>
 #include <condition_variable>
 #include <thread>
-
-//Set the namespace 
-using std::cout;
-using std::endl;
-using std::cin;
-using std::string;
-void sampleConst(const int& y);
-
-void sampleCast();
 
 void sampleSmartPointers();
 
@@ -69,51 +65,18 @@ int main (){
     sampleLoops();
     
     sampleArray();
-    //Not implemented in components:
     
-    
+    sampleCast();
     
     int y = 10;
     sampleConst(y);
 
-    sampleCast();
-
+    sampleNamespace();
+    //Not implemented in components:
     
-
     sampleSmartPointers();
      
     return 0;
-}
-
-void sampleConst(const int& y){ //Const parameter so can't be chaged
-    int a = 5, b = 6;
-
-    const int x = 10; //Cant change value
-    const int* p = &a; //Pointer to const int
-    int* const q = &a; //Const pointer to int
-    const int* const r = &a; //Const pointer to const int
-}
-
-void sampleCast(){
-    float x = 2.2;
-
-    //Static cast conversion
-    int y = static_cast<int>(x); 
-
-    //Dynamic cast conversion. If cast fails returns nullptr
-    BaseCar* carPtr1 = new ElectricCar(5, 10); 
-    ElectricCar* electricCarPtr1 = dynamic_cast<ElectricCar*>(carPtr1);
-
-    // BaseCar* carPtr2 = new BaseCar(5, 10); 
-    // ElectricCar* electricCarPtr2 = dynamic_cast<ElectricCar*>(carPtr2); //Nullptr
-
-    //const cast removes the const qualifier from the ptr
-    const int* yptr = &y;
-    int* ptry = const_cast<int*>(yptr);
-
-    //reinterpret cast does bit reinterpretation
-    int n = 50;
-    char* charPtr = reinterpret_cast<char*>(&n); //First byte of int as a char
 }
 
 void sampleSmartPointers(){
@@ -126,7 +89,7 @@ void sampleSmartPointers(){
     u2 = std::move(u1); //Transfer ownership using move
 
     if (!u1){
-        cout << "unique ptr 1 is now empty" << std::endl;
+        std::cout << "unique ptr 1 is now empty" << std::endl;
     }
 
     //shared_ptr -> Descturctor called when all owner ptrs are out of scope
@@ -135,7 +98,7 @@ void sampleSmartPointers(){
     std::shared_ptr<ElectricCar> s2 = s1;
 
     //Num of pointers that share reference to same address
-    cout << "Ref count = " << s1.use_count() << std::endl;
+    std::cout << "Ref count = " << s1.use_count() << std::endl;
 
     //Completely depricated in c++11, 2011 & removed in c++ 17, 2017
     //auto_ptr -> Destructor is called when owner is out of scope
@@ -173,26 +136,4 @@ void sampleExtras(){
 
     std::thread worker_thread(sampleLoops);
     worker_thread.join();
-}
-
-void practice(){
-    std::shared_ptr<ElectricCar> ptr = std::make_shared<ElectricCar>(10,15);
-    std::shared_ptr<ElectricCar> ptr2 = ptr;
-
-    std::unique_ptr<ElectricCar> uptr = std::make_unique<ElectricCar>(10,20);
-    std::unique_ptr<ElectricCar> uptr2 = std::move(uptr);
-
-    
-
-    //vector
-    std::vector<int> vector;
-    vector.push_back(9);
-    vector.push_back(15);
-    vector.push_back(10);
-
-    int val = vector.size();
-    val = vector.back();
-    vector.pop_back();
-    vector.insert(vector.begin()+1, 100);
-    vector.erase(vector.begin()+1);
 }
