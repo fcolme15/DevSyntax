@@ -3,6 +3,12 @@
 #include <iostream>
 #include <array>
 
+void simpleArrayStack();
+
+void simpleArrayHeap();
+
+void arrayLibrary();
+
 void sampleArray(){
     simpleArrayStack();
 
@@ -11,18 +17,22 @@ void sampleArray(){
     arrayLibrary();
 }
 
+void passingArraysAsParameters(int* array, int arraySize){
+    std::cout << "Passing size to function is lost so we need to pass it" << std::endl;
+}
+
 void simpleArrayStack(){
     //Initializing array on the stack
     int arr1[] = {1,2,3,4,5,6,7,8,9,10}; //Assumes the size of the array, {1,2,3,4,5,6,7,8,9,10}
     int arr2[5] = {1,2,3,4,5}; //Set the size, {1,2,3,4,5}
-    int arr2[5] = {1,2}; //{1,2,0,0,0}
-    int arr3[5] = {}; //Set the size and initialize to all 0's
-    int arr4[5]; //Uninitialized array
-    int arr5[2][2] = { //2x2 array as given
+    int arr3[5] = {1,2}; //{1,2,0,0,0}
+    int arr4[5] = {}; //Set the size and initialize to all 0's
+    int arr5[5]; //Uninitialized array
+    int arr6[2][2] = { //2x2 array as given
         {1,2},
         {3,4}
     };
-    int arr6[2][2] = { //2x2 array, [1,0]
+    int arr7[2][2] = { //2x2 array, [1,0]
         {1},                     // [2,0]
         {2}
     };
@@ -50,7 +60,7 @@ void simpleArrayHeap(){
     //Initializing on the heap
     int* arr1 = new int[10]; //Uninitialized values just set the memory aside
     int* arr2 = new int[10](); //Initialize to all 0's, {0,0,0,0,0,0,0,0,0,0}
-    int* arr3 = new int[5](1,2); //Partially initialized setting rest to 0's, {1,2,0,0,0}
+    int* arr3 = new int[5]{1,2}; //Partially initialized setting rest to 0's, {1,2,0,0,0}
 
     //Iterating through heap array using addresses and known size
     for (int* ptr = arr2; ptr < arr2+10; ptr++){
@@ -61,10 +71,6 @@ void simpleArrayHeap(){
     int thirdElement = *(arr2 + 2);
 
     delete[] arr2; //Deleting heap array
-}
-
-void passingArraysAsParameters(int* array, int arraySize){
-    std::cout << "Passing size to function is lost so we need to pass it" << std::endl;
 }
 
 void arrayLibrary(){
