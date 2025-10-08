@@ -1,4 +1,7 @@
 #CPP:
 
-#Makefile executable:
+#CPP Makefile executable:
 syntaxProgramming
+
+#VSCODE editor json files
+.vscode
