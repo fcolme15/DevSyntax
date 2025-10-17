@@ -1,0 +1,1 @@
+//This is mainly covered in streamIO cout as its stream formatting
