@@ -6,7 +6,7 @@
 #include <iostream>
 
 //Enum class declaration of type int
-//Different that this style needs explicit casting for type safety and namespace/name conflicts
+//Different from c-style as this style needs explicit casting for type safety and namespace/name conflicts
 enum class Weather : int {
     sunny, rainy, cloudy, cold, snowy
 };

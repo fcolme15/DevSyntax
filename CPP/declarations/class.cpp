@@ -161,3 +161,11 @@ void sampleClass(){
     //Overloaded ostream output stream so that it becomes a key work instead of returning a string
     std::cout << electricCar1 << electricCar2 << electricCar3;
 }
+
+void extras(){
+    /*An object can be instatiated by just var if no constructor is provided:
+    Object objectVarName; */
+
+    
+
+}

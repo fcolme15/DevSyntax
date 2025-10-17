@@ -11,6 +11,10 @@ void samplePointers(){
     regularPointers();
 
     smartPointers();
+
+    //Creating an alias for a variable, y is basically x
+    int x = 5;
+    int& y = x;
 }
 
 void passingPointerFunction(int* ptr){

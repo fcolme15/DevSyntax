@@ -31,6 +31,7 @@
 int main (){
     std::cout << "C++ Standard: " << __cplusplus << std::endl;
 
+    //Check CPP version
     #if __cplusplus >= 202302L
         std::cout << "C++23 supported!" << std::endl;
     #elif __cplusplus >= 202002L
@@ -70,28 +71,4 @@ int main (){
     samplePointers();
      
     return 0;
-}
-
-
-void sampleExtras(){
-    //Get timestamp - uint64
-    // auto timestamp = std::chrono::duration_cast<std::chrono::milliseconds>(
-    //     now.time_since_epoch()
-    // ).count();
-    
-    std::mutex mtx;
-    std::shared_mutex shared_mtx;
-    std::condition_variable cv;
-    {
-        std::unique_lock<std::mutex> lock(mtx);
-        lock.unlock();
-        lock.lock();
-    } //Auto unlocks out of scope
-
-    {
-        std::shared_lock<std::shared_mutex> read_lock(shared_mtx);
-    } //Auto unlocks out of scope
-
-    std::thread worker_thread(sampleLoops);
-    worker_thread.join();
 }
