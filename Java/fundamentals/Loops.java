@@ -2,8 +2,7 @@ public class Loops {
     public static void main(String[] args) {
         forLoop();
         whileLoop();
-        enhancedForLoop();
-        nestedLoops();
+        autoForLoops();
         loopControl();
         labeledLoops();
     }
@@ -12,7 +11,6 @@ public class Loops {
     //FOR LOOP
     //============================================================
     public static void forLoop() {
-        System.out.println("=== For Loop ===");
         
         for (int i = 0; i < 5; i++) {
             System.out.println("i = " + i);
@@ -34,7 +32,6 @@ public class Loops {
     //WHILE LOOP
     //============================================================
     public static void whileLoop() {
-        System.out.println("=== While Loop ===");
         
         //Basic while loop - condition checked before execution
         int i = 0;
@@ -60,10 +57,9 @@ public class Loops {
     }
 
     //============================================================
-    //ENHANCED FOR LOOP (FOR-EACH)
+    //Auto For Loops
     //============================================================
-    public static void enhancedForLoop() {
-        System.out.println("=== Enhanced For Loop (For-Each) ===");
+    public static void autoForLoops() {
         
         //For-each loop with arrays
         int[] numbers = {1, 2, 3, 4, 5};
@@ -100,7 +96,6 @@ public class Loops {
     //BREAK & CONTINUE
     //============================================================
     public static void loopControl() {
-        System.out.println("=== Loop Control ===");
         
         //break - exits the loop immediately
         System.out.println("Break example:");
@@ -127,7 +122,6 @@ public class Loops {
     //LABELED LOOPS
     //============================================================
     public static void labeledLoops() {
-        System.out.println("=== Labeled Loops ===");
         
         //Label allows breaking/continuing outer loops from inner loops
         //Syntax: labelName: for (...) { }
