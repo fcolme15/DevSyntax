@@ -1,15 +1,14 @@
 public class VariablesAndPrimitives {
     public static void main(String[] args) {
-        demonstratePrimitiveTypes();
-        demonstrateVariableDeclarations();
+        primitiveTypes();
+        variableDeclarations();
         wrapperClasses();
     }
 
     //============================================================
     //PRIMITIVE TYPES
     //============================================================
-    public static void demonstratePrimitiveTypes() {
-        System.out.println("=== Primitive Types ===");
+    public static void primitiveTypes() {
         
         //Integers
         byte byteVar = 127; //8-bit, -128 to 127
@@ -29,8 +28,7 @@ public class VariablesAndPrimitives {
     //============================================================
     //VARIABLE DECLARATIONS
     //============================================================
-    public static void demonstrateVariableDeclarations() { 
-        System.out.println("=== Variable Declarations ===");
+    public static void variableDeclarations() { 
 
         //Declaration & initialization together
         int x; 
@@ -51,7 +49,6 @@ public class VariablesAndPrimitives {
     //WRAPPER CLASSES
     //============================================================
     public static void wrapperClasses() {
-        System.out.println("=== Wrapper Classes ===");
         
         //Wrapper classes for primitives: Byte, Short, Integer, Long, Float, Double, Character, Boolean
         //Used when you need objects instead of primitives (collections, generics, null values)
