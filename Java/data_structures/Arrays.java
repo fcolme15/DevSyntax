@@ -16,7 +16,7 @@ public class ArraysReference {
         //Declaration and initialization
         //Array length is fixed after creation
         int[] numbers1 = {1, 2, 3, 4, 5}; //Array literal
-        int[] numbers2 = new int[]{1, 2, 3, 4, 5}; //Explicit array creation
+        int[] numbers2 = new int[]{1, 2, 3, 4, 5}; //Explicit array creation, same as above
         int[][] matrix1 = { //Multidimensional Array
             {1, 2, 3},
             {4, 5, 6},
@@ -39,7 +39,7 @@ public class ArraysReference {
         boolean[] falses = new boolean[3]; //[false, false, false]
         String[] nulls = new String[3]; //[null, null, null]
         
-        //Can check array length at any moment, its a property
+        //Check array length at any moment, its a property
         int length = numbers1.length;
     }
 
@@ -58,7 +58,7 @@ public class ArraysReference {
         arr[0] = 100; 
         arr[2] = arr[1] + arr[3]; 
         
-        //Arrays are reference types
+        //Arrays are reference types, AKA pointers
         int[] original = {1, 2, 3};
         int[] reference = original; //Same array, not a copy
         reference[0] = 100;

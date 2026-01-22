@@ -78,6 +78,19 @@ public class ControlFlow {
             default:
                 int code4 = 0;
         }
+        
+        //Traditional colon syntax with yield (Java 12+)
+        int value = 2;
+        String result = switch (value) {
+            case 1:
+                yield "one";
+            case 2:
+                yield "two";
+            case 3:
+                yield "three";
+            default:
+                yield "other";
+        };
     }
 
     //============================================================
@@ -117,18 +130,7 @@ public class ControlFlow {
             default -> 0;
         };
         
-        //Traditional colon syntax with yield (Java 12+)
-        int value = 2;
-        String result = switch (value) {
-            case 1:
-                yield "one";
-            case 2:
-                yield "two";
-            case 3:
-                yield "three";
-            default:
-                yield "other";
-        };
+        
     }
 
     //============================================================

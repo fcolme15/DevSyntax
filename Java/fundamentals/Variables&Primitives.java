@@ -22,7 +22,7 @@ public class VariablesAndPrimitives {
         
         //Character and boolean
         char charVar = 'A'; //16-bit Unicode character, single quotes
-        boolean boolVar = true; //true or false
+        boolean boolVar = true;
     }
 
     //============================================================
