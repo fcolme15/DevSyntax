@@ -1,5 +1,8 @@
 //Covers: classes, constructors, access modifiers, static vs instance, inheritance, abstract classes, final, Object methods
 
+import java.util.Iterator;
+import java.util.ArrayList;
+
 public class Classes {
     public static void main(String[] args) {
         //Create instances
@@ -139,6 +142,36 @@ class Car {
         System.out.println("5 year warranty");
     }
 }
+
+//============================================================
+//CARFLEET - Demonstrates Iterable implementation
+//============================================================
+class CarFleet implements Iterable<Car> {
+    private ArrayList<Car> cars;
+    
+    public CarFleet() {
+        this.cars = new ArrayList<>();
+    }
+    
+    public void addCar(Car car) {
+        cars.add(car);
+    }
+    
+    //Must implement iterator() method from Iterable interface
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator(); //Delegate to ArrayList's iterator
+    }
+
+    //Usage in main:
+    //CarFleet fleet = new CarFleet();
+    //fleet.addCar(new Car("Toyota", "Camry", 2020));
+    //fleet.addCar(new Car("Honda", "Accord", 2021));
+    //for(Car car : fleet) { //Can now use enhanced for-loop
+    //    System.out.println(car);
+    //}
+}
+
 
 //============================================================
 //ELECTRICCAR - Demonstrates inheritance
