@@ -4,7 +4,6 @@ public class TuplesReference {
     public static void main(String[] args) {
         pairUsage();
         tripleUsage();
-        mapEntryAsPairUsage();
     }
 
     //============================================================
@@ -57,29 +56,6 @@ public class TuplesReference {
         person.setThird("Manager");
     }
 
-    //============================================================
-    //MAP.ENTRY AS PAIR - USAGE
-    //============================================================
-    public static void mapEntryAsPairUsage() {
-        //Map.Entry can be used as an immutable pair
-        Map.Entry<String, Integer> entry = Map.entry("Alice", 25);
-        
-        //Access elements
-        String key = entry.getKey();
-        Integer value = entry.getValue();
-        
-        //Cannot modify - immutable
-        //entry.setValue(30); //UnsupportedOperationException
-        
-        //Use in collections
-        List<Map.Entry<String, Integer>> entries = new ArrayList<>();
-        entries.add(Map.entry("Alice", 25));
-        entries.add(Map.entry("Bob", 30));
-        
-        //Create mutable entry
-        Map.Entry<String, Integer> mutableEntry = new AbstractMap.SimpleEntry<>("Alice", 25);
-        mutableEntry.setValue(30); //Can modify
-    }
 }
 
 //============================================================
@@ -172,27 +148,3 @@ class Triple<T, U, V> {
         return "(" + first + ", " + second + ", " + third + ")";
     }
 }
-
-//============================================================
-//TUPLE ALTERNATIVES
-//============================================================
-//1. Custom classes (Pair, Triple above)
-//- Most flexible
-//- Type-safe
-//- Can add methods
-
-//2. Map.Entry<K, V>
-//- Built-in, no custom class needed
-//- Immutable version: Map.entry(k, v)
-//- Mutable version: new AbstractMap.SimpleEntry<>(k, v)
-//- Limited to 2 elements only
-
-//3. Arrays or Lists
-//Object[] tuple = {"Alice", 25, "Engineer"};
-//- Not type-safe
-//- Can hold any number of elements
-//- Requires casting when retrieving
-
-//4. Third-party libraries
-//- Apache Commons Lang3: Pair, Triple
-//- JavaTuples library: Pair, Triplet, Quartet, etc.
