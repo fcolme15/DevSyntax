@@ -257,3 +257,17 @@ final class ImmutableConfig {
 }
 
 //class ExtendConfig extends ImmutableConfig {} //Compilation error - cannot extend final class
+
+
+//============================================================
+//OBJECT CLASS METHODS
+//============================================================
+//toString() - String representation of object
+//equals(Object obj) - Compare objects for equality
+//hashCode() - Generate hash code for object
+//getClass() - Get runtime class of object
+//clone() - Create copy of object (requires Cloneable)
+//finalize() - Called before garbage collection (deprecated)
+//notify() - Wake up thread waiting on object (multithreading)
+//notifyAll() - Wake up all threads waiting on object
+//wait() - Make thread wait until notified
