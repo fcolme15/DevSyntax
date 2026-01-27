@@ -7,9 +7,6 @@ function main() {
 	truthyFalsy();
 }
 
-//== (loose equality): performs type coercion, compares values
-//=== (strict equality): no type coercion, compares type and value
-
 //============================================================
 //TYPE CHECKING
 //============================================================

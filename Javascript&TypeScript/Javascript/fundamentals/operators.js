@@ -1,4 +1,3 @@
-//Run all examples
 function mainSummary() {
 	arithmeticOperators();
 	assignmentOperators();
