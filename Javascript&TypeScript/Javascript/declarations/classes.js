@@ -18,7 +18,7 @@ function comprehensiveClassExample() {
 		#pin;
 		
 		//Constructor - only one allowed, no overloading
-		constructor(owner, initialBalance = 0, pin) {
+		constructor(owner, pin, initialBalance = 0) {
 			this.owner = owner; //Public property
 			this.#balance = initialBalance; //Private property
 			this.#pin = pin;
