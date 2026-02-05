@@ -52,7 +52,8 @@ function awaitKeyword() {
 	
 	//Sequential async operations
 	function getUser(id) {
-		return new Promise(resolve => {
+		return new Promise(resolve => { //Resolve is a function that when called marks fulfilled, 
+                                        //stores value passed, and triggers .then()
 			setTimeout(() => resolve({ id: id, name: "John" }), 1000);
 		});
 	}
