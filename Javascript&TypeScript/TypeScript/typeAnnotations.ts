@@ -86,6 +86,10 @@ function annotationsFunctionTypes() {
         return x * y;
     };
 
+    let multiply2 = function(x: number, y: number): number {
+        return x * y;
+    };
+
     //Arrow function
     let subtract = (x: number, y: number): number => x - y;
 
