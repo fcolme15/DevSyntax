@@ -6,6 +6,11 @@ function mainSummaryUtilityTypes() {
     utilityTypesReturnTypeAndParameters();
 }
 
+//Utilities as a concept: Instead of manually writing similar definitions for types
+//we implement utilities that convert or change the type in a way to make a new type.
+//In a way we can make a big version cookie cutter then cut the size from that one.
+//Make them optional, required, read only, change strings list to a list, and more
+
 function utilityTypesPartialAndRequired() {
     interface User {
         name: string;
