@@ -1,0 +1,107 @@
+<!-- HTML MEDIA ELEMENTS - Images, video, audio -->
+
+<!-- IMAGES -->
+
+<!-- Image - displays image -->
+<!-- src: image path/URL, alt: text description for accessibility -->
+<!-- Image with width/height - sets dimensions in pixels -->
+<!-- Image with loading attribute - lazy loads when near viewport -->
+<img src="image.jpg" alt="Description of image" width="300" height="200" loading="lazy">
+
+<!-- Picture element - responsive images, serves different images based on conditions -->
+<picture>
+    <!-- Source for different screen sizes (mobile first) -->
+    <source media="(max-width: 600px)" srcset="small.jpg">
+    <source media="(max-width: 1200px)" srcset="medium.jpg">
+    <!-- Fallback image if no source matches -->
+    <img src="large.jpg" alt="Description">
+</picture>
+
+<!-- Picture with WebP and fallback - serves modern format with fallback -->
+<picture>
+    <source srcset="image.webp" type="image/webp">
+    <img src="image.jpg" alt="Description">
+</picture>
+
+<!-- Figure - semantic wrapper for images with captions -->
+<figure>
+    <img src="image.jpg" alt="Description">
+    <!-- Figcaption - caption for figure -->
+    <figcaption>Image caption text</figcaption>
+</figure>
+
+<!-- Srcset - provides multiple image resolutions, browser picks best -->
+<!-- 1x for normal screens, 2x for retina/high-DPI screens -->
+<img src="image.jpg" 
+     srcset="image.jpg 1x, image@2x.jpg 2x" 
+     alt="Description">
+
+<!-- VIDEO -->
+
+<!-- Video element - embeds video -->
+<!-- controls: shows play/pause/volume controls -->
+<!-- Video with width/height -->
+<!-- Video with autoplay - starts automatically (often muted required) -->
+<video src="video.mp4" controls width="640" height="360" autoplay muted></video>
+
+<!-- Video with loop - repeats continuously -->
+<video src="video.mp4" loop controls></video>
+
+<!-- Video with poster - thumbnail shown before playing -->
+<video src="video.mp4" poster="thumbnail.jpg" controls></video>
+
+<!-- Video with multiple sources - browser uses first supported format -->
+<video controls>
+    <source src="video.mp4" type="video/mp4">
+    <source src="video.webm" type="video/webm">
+    <!-- Fallback text if video not supported -->
+    Your browser does not support video.
+</video>
+
+<!-- Video with preload attribute -->
+<!-- none: don't preload, metadata: only metadata, auto: preload entire video -->
+<video src="video.mp4" preload="metadata" controls></video>
+
+<!-- AUDIO -->
+
+<!-- Audio element - embeds audio. Same options as video above. -->
+<audio src="audio.mp3" controls></audio>
+
+<!-- EMBEDDED CONTENT -->
+
+<!-- Iframe - embeds another HTML page -->
+<!-- src: URL to embed, width/height: dimensions -->
+<iframe src="https://example.com" width="600" height="400"></iframe>
+
+<!-- Iframe with title - improves accessibility -->
+<iframe src="https://example.com" title="Embedded page description"></iframe>
+
+<!-- Iframe with sandbox - restricts what embedded content can do -->
+<!-- allow-scripts: allows JavaScript, allow-same-origin: allows access to origin -->
+<iframe src="https://example.com" sandbox="allow-scripts allow-same-origin"></iframe>
+
+<!-- Embed - generic embedded content (plugins, PDFs) -->
+<embed src="document.pdf" type="application/pdf" width="600" height="400">
+
+<!-- Object - embedded content with fallback -->
+<object data="animation.swf" type="application/x-shockwave-flash">
+    <p>Fallback content if object cannot load</p>
+</object>
+
+<!-- SVG - inline scalable vector graphics -->
+<svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" fill="blue" />
+</svg>
+
+<!-- Canvas - drawing surface for JavaScript graphics -->
+<!-- JavaScript required to draw on canvas -->
+<canvas id="myCanvas" width="200" height="100"></canvas>
+
+<!-- Map and Area - image map with clickable regions -->
+<img src="map.jpg" alt="Map" usemap="#regions">
+<map name="regions">
+    <!-- Area defines clickable region -->
+    <!-- shape: rect/circle/poly, coords: pixel coordinates, href: link URL -->
+    <area shape="rect" coords="0,0,100,100" href="page1.html" alt="Region 1">
+    <area shape="circle" coords="150,50,30" href="page2.html" alt="Region 2">
+</map>

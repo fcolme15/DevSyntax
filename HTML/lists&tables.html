@@ -1,0 +1,155 @@
+<!-- HTML LISTS AND TABLES - Structured data display -->
+
+
+
+
+
+<!-- LISTS -->
+
+<!-- Unordered list - bullet points, order doesn't matter -->
+<ul>
+    <li>First item</li> <!-- li: List item -->
+    <li>Second item</li>
+    <li>Third item</li>
+</ul>
+
+<!-- Ordered list - numbered, order matters -->
+<ol>
+    <li>Step 1</li>
+    <li>Step 2</li>
+    <li>Step 3</li>
+</ol>
+
+<!-- Ordered list with type attribute - changes numbering style -->
+<!-- type="1" (default), "A", "a", "I", "i" -->
+<ol type="A">
+    <li>Item A</li>
+    <li>Item B</li>
+</ol>
+
+<!-- Ordered list with start attribute - begins at specified number -->
+<ol start="5">
+    <li>Item 5</li>
+    <li>Item 6</li>
+</ol>
+
+<!-- Nested lists -->
+<ul>
+    <li>Parent item
+        <ul>
+            <li>Nested item 1</li>
+            <li>Nested item 2</li>
+        </ul>
+    </li>
+    <li>Another parent item</li>
+</ul>
+
+<!-- Description list - term/definition pairs 
+dl: description list, dt: description term, dd: description definition-->
+<dl>
+    <dt>Term 1</dt>
+    <dd>Definition for term 1</dd>
+    
+    <dt>Term 2</dt>
+    <dd>Definition for term 2</dd>
+</dl>
+
+
+
+
+
+<!-- TABLES -->
+
+<!-- Basic table structure -->
+<table>
+    <!-- tr: Table row -->
+    <tr>
+        <!-- th: Table header cell - bold and centered by default -->
+        <th>Header 1</th>
+        <th>Header 2</th>
+    </tr>
+    <tr>
+        <!-- td: Table data cell -->
+        <td>Data 1</td>
+        <td>Data 2</td>
+    </tr>
+</table>
+
+<!-- Table with sections - improves semantics and styling control -->
+<table>
+    <!-- thead: Table head - contains header rows -->
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    
+    <!-- tbody: Table body - contains data rows -->
+    <tbody>
+        <tr>
+            <td>John</td>
+            <td>30</td>
+            <td>New York</td>
+        </tr>
+        <tr>
+            <td>Jane</td>
+            <td>25</td>
+            <td>London</td>
+        </tr>
+    </tbody>
+    
+    <!-- tfoot: Table foot - contains footer rows (totals, notes) -->
+    <tfoot>
+        <tr>
+            <td colspan="3">2 total entries</td>
+        </tr>
+    </tfoot>
+</table>
+
+<!-- caption: Table caption - title/description above table -->
+<table>
+    <caption>Monthly Sales Report</caption>
+    <tr>
+        <th>Month</th>
+        <th>Sales</th>
+    </tr>
+</table>
+
+<!-- Colspan - cell spans multiple columns -->
+<table>
+    <tr>
+        <th colspan="2">Name</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>First</td>
+        <td>Last</td>
+        <td>30</td>
+    </tr>
+</table>
+
+<!-- Rowspan - cell spans multiple rows -->
+<table>
+    <tr>
+        <td rowspan="2">Combined</td>
+        <td>Row 1</td>
+    </tr>
+    <tr>
+        <td>Row 2</td>
+    </tr>
+</table>
+
+<!-- Scope attribute - specifies if header is for row/col/group -->
+<!-- Improves accessibility for screen readers -->
+<table>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+    </tr>
+    <tr>
+        <th scope="row">Person 1</th>
+        <td>30</td>
+    </tr>
+</table>

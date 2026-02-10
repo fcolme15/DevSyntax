@@ -1,0 +1,72 @@
+<!-- HTML STRUCTURE - Document structure and metadata -->
+
+<!-- DOCTYPE declaration - tells browser this is HTML5 -->
+<!DOCTYPE html>
+
+<!-- Root element - contains all HTML content -->
+<html lang="en">
+
+<!-- Head section - metadata, not visible on page -->
+<head>
+    <!-- Character encoding - UTF-8 supports all languages -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport for responsive design - controls zoom/scaling on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title - shows in browser tab -->
+    <title>Page Title</title>
+    
+    <!-- Meta description - used by search engines -->
+    <meta name="description" content="Page description for SEO">
+    
+    <!-- Meta keywords - less important for SEO now -->
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    
+    <!-- Author -->
+    <meta name="author" content="Author Name">
+    
+    <!-- Favicon - small icon in browser tab -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- External CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- External JavaScript file - defer waits until HTML loads -->
+    <script src="script.js" defer></script>
+    
+    <!-- Inline CSS -->
+    <style>
+        body { margin: 0; }
+    </style>
+    
+    <!-- Inline JavaScript -->
+    <script>
+        console.log("Page loaded");
+    </script>
+    
+    <!-- Open Graph meta tags - for social media sharing -->
+    <meta property="og:title" content="Page Title">
+    <meta property="og:description" content="Description">
+    <meta property="og:image" content="image.jpg">
+    
+    <!-- Preload resources - loads critical resources earlier -->
+    <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Canonical URL - prevents duplicate content issues -->
+    <link rel="canonical" href="https://example.com/page">
+</head>
+
+<!-- Body section - visible page content -->
+<body>
+    <!-- All visible content goes here -->
+    Example available in "semantic.html" with more structured example. 
+    <!-- Script at end of body - loads after HTML content 
+    executes in top down order and each needs its own tag to execute.-->
+    <!-- defer: waits for HTML to load & maintains order
+    async: Loads asynchronously, executes immediately but does not guarantee order.-->
+    <script src="body-script.js" defer></script>
+    <script src="footer-script.js" defer></script>
+</body>
+
+</html>

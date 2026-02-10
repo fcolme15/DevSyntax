@@ -1,0 +1,170 @@
+<!-- HTML SEMANTIC ELEMENTS - HTML5 semantic structure -->
+
+<!-- Semantic elements provide meaning to content structure -->
+<!-- Improves accessibility, SEO, and code readability -->
+
+<!-- Header - introductory content, typically logo/nav/heading -->
+<!-- Can be used multiple times (page header, section header, article header) -->
+<header>
+    <h1>Site Title</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<!-- Nav - navigation links section -->
+<!-- Use for major navigation blocks, not all links need nav -->
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Main - main content of page, unique content -->
+<!-- Only one main per page, excludes repeated content like headers/footers/sidebars -->
+<main>
+    <h1>Page Title</h1>
+    <p>Main content goes here</p>
+</main>
+
+<!-- Section - thematic grouping of content, typically with heading -->
+<!-- Use when content logically belongs together -->
+<section>
+    <h2>Section Title</h2>
+    <p>Section content</p>
+</section>
+
+<!-- Article - self-contained, independently distributable content -->
+<!-- Could be syndicated, republished independently (blog post, news article, comment) -->
+<article>
+    <h2>Article Title</h2>
+    <p>Article content that makes sense on its own</p>
+</article>
+
+<!-- Aside - tangentially related content, often sidebar -->
+<!-- Content related but not essential to main content (ads, related links, definitions) -->
+<aside>
+    <h3>Related Links</h3>
+    <ul>
+        <li><a href="#">Related Article 1</a></li>
+        <li><a href="#">Related Article 2</a></li>
+    </ul>
+</aside>
+
+<!-- Footer - footer content, typically copyright/links/contact -->
+<!-- Can be used multiple times (page footer, section footer, article footer) -->
+<footer>
+    <p>&copy; 2024 Company Name</p>
+    <nav>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+    </nav>
+</footer>
+
+<!-- Details - disclosure widget, content shown/hidden on click -->
+<!-- Summary - visible heading/summary for details -->
+<details>
+    <summary>Click to expand</summary>
+    <p>Hidden content that appears when clicked</p>
+</details>
+
+<!-- Details with open attribute - expanded by default -->
+<details open>
+    <summary>Expanded by default</summary>
+    <p>This content is visible initially</p>
+</details>
+
+<!-- Dialog - dialog box or modal -->
+<!-- JavaScript required to show/hide -->
+<dialog id="myDialog">
+    <h2>Dialog Title</h2>
+    <p>Dialog content</p>
+    <button>Close</button>
+</dialog>
+
+<!-- TYPICAL PAGE STRUCTURE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic HTML Page</title>
+</head>
+<body>
+    
+    <!-- Page header -->
+    <header>
+        <h1>Website Name</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/blog">Blog</a>
+        </nav>
+    </header>
+    
+    <!-- Main content area -->
+    <main>
+        
+        <!-- Blog post article -->
+        <article>
+            <header>
+                <h2>Article Title</h2>
+                <p>Published on <time datetime="2024-01-15">January 15, 2024</time></p>
+            </header>
+            
+            <!-- Article sections -->
+            <section>
+                <h3>Section 1</h3>
+                <p>Content</p>
+            </section>
+            
+            <section>
+                <h3>Section 2</h3>
+                <p>Content</p>
+            </section>
+            
+            <footer>
+                <p>Tags: HTML, Semantic</p>
+            </footer>
+        </article>
+        
+        <!-- Another article -->
+        <article>
+            <h2>Another Article</h2>
+            <p>Content</p>
+        </article>
+        
+    </main>
+    
+    <!-- Sidebar -->
+    <aside>
+        <h3>About the Author</h3>
+        <p>Author bio</p>
+        
+        <section>
+            <h3>Recent Posts</h3>
+            <ul>
+                <li><a href="#">Post 1</a></li>
+                <li><a href="#">Post 2</a></li>
+            </ul>
+        </section>
+    </aside>
+    
+    <!-- Page footer -->
+    <footer>
+        <p>&copy; 2024 Website Name</p>
+        <nav>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </footer>
+    
+</body>
+</html>
+
+<!-- NON-SEMANTIC VS SEMANTIC COMPARISON:
+benefits: Accessibility (screen readers), Search engines, browser features, 
+css styling targeting semantic groups, and overall maintainability.  -->

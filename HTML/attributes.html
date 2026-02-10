@@ -1,0 +1,153 @@
+<!-- HTML ATTRIBUTES - Global and common attributes -->
+
+<!-- CORE GLOBAL ATTRIBUTES - Work on any HTML element -->
+
+<!-- id - unique identifier for element -->
+<!-- Use for JavaScript targeting, linking, CSS styling -->
+<div id="unique-element"></div>
+
+<!-- class - one or more class names for CSS/JS targeting -->
+<!-- Multiple classes separated by spaces -->
+<div class="class1 class2 class3"></div>
+
+<!-- style - inline CSS styles -->
+<!-- Property: value pairs separated by semicolons -->
+<div style="color: red; font-size: 16px;"></div>
+
+<!-- title - tooltip text on hover -->
+<div title="This appears on hover"></div>
+
+<!-- hidden - hides element from display -->
+<!-- Element not rendered, but still in DOM -->
+<div hidden>This is hidden</div>
+
+<!-- lang - language of element content -->
+<!-- Helps screen readers and search engines -->
+<p lang="es">Hola mundo</p>
+
+<!-- dir - text direction -->
+<!-- ltr: left-to-right (default), rtl: right-to-left, auto -->
+<p dir="rtl">نص عربي</p>
+
+<!-- tabindex - tab order for keyboard navigation -->
+<!-- 0: natural order, -1: not keyboard accessible, 1+: custom order -->
+<div tabindex="0">Keyboard accessible</div>
+<div tabindex="-1">Not in tab order</div>
+
+<!-- contenteditable - makes element editable -->
+<!-- true: editable, false: not editable -->
+<div contenteditable="true">Click to edit this text</div>
+
+<!-- draggable - element can be dragged -->
+<!-- true: draggable, false: not draggable, auto: browser default -->
+<div draggable="true">Drag me</div>
+
+<!-- spellcheck - enables spell checking -->
+<!-- true: check spelling, false: don't check -->
+<textarea spellcheck="true"></textarea>
+
+<!-- translate - whether content should be translated -->
+<!-- yes: translate, no: don't translate -->
+<span translate="no">Brand Name</span>
+
+<!-- DATA ATTRIBUTES - Custom attributes for storing data -->
+
+<!-- data-* - custom data attributes -->
+<!-- Store extra information on elements for JavaScript use -->
+<div data-user-id="12345" data-role="admin" data-status="active"></div>
+
+<!-- Access in JavaScript: element.dataset.userId -->
+
+<!-- ARIA ATTRIBUTES - Accessibility attributes -->
+
+<!-- aria-label - accessible name for element -->
+<!-- Used by screen readers when visible text isn't available -->
+<button aria-label="Close dialog">✕</button>
+
+<!-- aria-labelledby - references element that labels this one -->
+<h2 id="dialog-title">Dialog Title</h2>
+<div aria-labelledby="dialog-title">Dialog content</div>
+
+<!-- aria-describedby - references element that describes this one -->
+<input type="text" aria-describedby="username-help">
+<span id="username-help">Must be 3-20 characters</span>
+
+<!-- aria-hidden - hides element from screen readers -->
+<!-- true: hidden from screen readers, false: visible -->
+<span aria-hidden="true">Decorative icon</span>
+
+<!-- aria-live - announces dynamic content changes to screen readers -->
+<!-- off: no announcements, polite: wait for pause, assertive: interrupt -->
+<div aria-live="polite">Status message</div>
+
+<!-- aria-expanded - state of collapsible element -->
+<!-- true: expanded, false: collapsed -->
+<button aria-expanded="false" aria-controls="menu">Menu</button>
+<div id="menu" hidden>Menu items</div>
+
+<!-- aria-disabled - indicates disabled state -->
+<!-- true: disabled, false: enabled -->
+<button aria-disabled="true">Disabled Button</button>
+
+<!-- aria-required - indicates required form field -->
+<input type="text" aria-required="true">
+
+<!-- aria-invalid - indicates validation error -->
+<input type="email" aria-invalid="true" aria-describedby="error-msg">
+<span id="error-msg">Invalid email format</span>
+
+<!-- role - defines element's role for accessibility -->
+<!-- Overrides semantic meaning, use sparingly -->
+<div role="button" tabindex="0">Custom button</div>
+<div role="navigation">Navigation content</div>
+<div role="alert">Important message</div>
+
+<!-- LINK ATTRIBUTES - For <a> tags -->
+
+<!-- href - destination URL -->
+<a href="https://example.com">Link</a>
+
+<!-- target - where to open link -->
+<!-- _blank: new tab, _self: same tab (default), _parent, _top -->
+<a href="page.html" target="_blank">Open in new tab</a>
+
+<!-- rel - relationship between current and linked document -->
+<!-- nofollow: don't follow for SEO, noopener: security for target="_blank", noreferrer: don't send referrer -->
+<a href="https://external.com" rel="noopener noreferrer" target="_blank">External link</a>
+
+<!-- download - prompts download instead of navigation -->
+<!-- Value becomes suggested filename -->
+<a href="file.pdf" download="document.pdf">Download PDF</a>
+
+<!-- FORM ATTRIBUTES - Covered in html_forms.html -->
+<!-- name, value, placeholder, required, disabled, readonly -->
+
+<!-- MEDIA ATTRIBUTES - Covered in html_media.html -->
+<!-- src, alt, width, height, controls, autoplay -->
+
+<!-- EVENT ATTRIBUTES - Inline JavaScript event handlers -->
+<!-- Modern practice: use addEventListener in JavaScript instead -->
+
+<!-- onclick - fires when element is clicked -->
+<button onclick="alert('Clicked')">Click me</button>
+
+<!-- onload - fires when page/image loads -->
+<body onload="console.log('Page loaded')">
+
+<!-- onchange - fires when input value changes -->
+<input type="text" onchange="console.log('Changed')">
+
+<!-- onsubmit - fires when form is submitted -->
+<form onsubmit="return validateForm()">
+
+<!-- Other event attributes: onmouseover, onmouseout, onkeydown, onkeyup, onfocus, onblur -->
+
+<!-- MICRODATA ATTRIBUTES - Structured data for search engines -->
+
+<!-- itemscope - defines item scope -->
+<!-- itemtype - type of item (schema.org URL) -->
+<!-- itemprop - property of item -->
+<div itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">John Doe</span>
+    <span itemprop="jobTitle">Software Engineer</span>
+</div>
