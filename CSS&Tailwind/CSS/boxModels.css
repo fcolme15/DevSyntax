@@ -1,0 +1,123 @@
+/* CSS BOX MODEL - Spacing and sizing */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { margin: 20px; }" */
+
+
+/* BOX MODEL STRUCTURE */
+/* From outside to inside: margin -> border -> padding -> content */
+
+/* MARGIN - Space outside element, pushes other elements away */
+margin: 20px;                    /* All sides */
+margin: 10px 20px;               /* Vertical horizontal */
+margin: 10px 20px 30px;          /* Top horizontal bottom */
+margin: 10px 20px 30px 40px;     /* Top right bottom left (clockwise) */
+/* Individual sides */
+/* Negative margin - pulls element in opposite direction */
+margin-top: -10px;
+margin-right: 20px;
+margin-bottom: 30px;
+margin-left: 40px;
+
+/* Auto - centers block element horizontally (with width set) */
+margin: 0 auto;
+
+/* PADDING - Space inside element, between border and content */
+/* Same syntax as margin */
+padding: 20px;
+padding: 10px 20px;
+padding: 10px 20px 30px 40px;
+padding-top: 10px;
+
+/* BORDER - Line around element between margin and padding */
+
+/* Shorthand - width style color */
+border: 2px solid black;
+border: 1px dashed red;
+
+/* Individual properties */
+border-width: 2px;
+border-style: solid;    /* solid, dashed, dotted, double, groove, ridge, inset, outset, none */
+border-color: black;
+
+/* Individual sides */
+border-top: 2px solid black;
+border-right: 1px dashed red;
+border-bottom: 3px dotted blue;
+border-left: 4px double green;
+
+/* Specific side properties */
+border-top-width: 2px;
+border-right-style: dashed;
+border-bottom-color: blue;
+
+/* Border radius - rounded corners */
+border-radius: 10px;             /* All corners */
+border-radius: 10px 20px;        /* Top-left/bottom-right, top-right/bottom-left */
+border-radius: 10px 20px 30px 40px; /* TL TR BR BL (clockwise) */
+border-top-left-radius: 10px;
+border-top-right-radius: 20px;
+border-bottom-right-radius: 30px;
+border-bottom-left-radius: 40px;
+
+/* Circle - 50% radius on square element */
+border-radius: 50%;
+
+/* OUTLINE - Like border but doesn't affect layout, drawn outside border */
+/* Useful for focus states, doesn't push other elements */
+outline: 2px solid blue;
+outline-width: 2px;
+outline-style: solid;
+outline-color: blue;
+outline-offset: 4px;    /* Space between outline and border */
+
+/* WIDTH AND HEIGHT */
+
+width: 300px;
+height: 200px;
+
+/* Min/max constraints */
+min-width: 200px;       /* Won't shrink below this */
+max-width: 800px;       /* Won't grow beyond this */
+min-height: 100px;
+max-height: 500px;
+
+/* Percentage - relative to parent */
+width: 50%;
+height: 100%;
+
+/* Viewport units */
+width: 100vw;           /* 100% of viewport width */
+height: 100vh;          /* 100% of viewport height */
+
+/* Auto - browser calculates (default for width) */
+width: auto;
+
+/* BOX-SIZING - How width/height are calculated */
+
+/* content-box (default) - width/height = content only */
+/* Total width = width + padding + border */
+box-sizing: content-box;
+
+/* border-box - width/height = content + padding + border */
+/* Total width = width (padding/border included) */
+/* Recommended for easier layouts */
+box-sizing: border-box;
+
+/* Common reset - apply border-box to all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* DIMENSIONS UNITS */
+
+/* Absolute */
+/* px - pixels (most common) */
+/* pt - points (1/72 inch, print) */
+/* cm, mm, in - centimeters, millimeters, inches */
+
+/* Relative */
+/* % - percentage of parent */
+/* em - relative to element's font-size (2em = 2x font size) */
+/* rem - relative to root font-size (consistent across elements) */
+/* vw, vh - viewport width/height percentage */
+/* vmin, vmax - smaller/larger of vw or vh */

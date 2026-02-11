@@ -1,0 +1,127 @@
+/* CSS DISPLAY AND POSITION - Layout control */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { display: block; }" */
+
+/* DISPLAY - How element generates boxes */
+
+display: block;         /* Takes full width, stacks vertically (div, p, h1) */
+display: inline;        /* Only takes needed width, flows with text (span, a) */
+display: inline-block;  /* Inline but can set width/height */
+display: none;          /* Removes from layout, not rendered */
+display: flex;          /* Flexbox container (see css_flexbox.css) */
+display: grid;          /* Grid container (see css_grid.css) */
+display: inline-flex;   /* Inline flexbox */
+display: inline-grid;   /* Inline grid */
+
+/* VISIBILITY - Hides element but keeps space */
+visibility: visible;    /* Default, element shown */
+visibility: hidden;     /* Invisible but takes up space (vs display: none) */
+
+/* POSITION - How element is positioned */
+
+position: static;       /* Default, normal document flow */
+position: relative;     /* Positioned relative to normal position, keeps space */
+position: absolute;     /* Positioned relative to nearest positioned ancestor, removed from flow */
+position: fixed;        /* Positioned relative to viewport, stays on scroll */
+position: sticky;       /* Switches between relative and fixed based on scroll */
+
+/* OFFSET PROPERTIES - Work with positioned elements (not static) */
+/* Moves element from its position */
+top: 10px;
+right: 20px;
+bottom: 30px;
+left: 40px;
+
+/* RELATIVE POSITIONING */
+/* Element positioned relative to its normal position */
+/* Space in normal flow is preserved */
+.relative {
+    position: relative;
+    top: 10px;          /* Moves down 10px from normal position */
+    left: 20px;         /* Moves right 20px from normal position */
+}
+
+/* ABSOLUTE POSITIONING */
+/* Element removed from normal flow, positioned relative to nearest positioned ancestor */
+/* If no positioned ancestor, relative to <body> */
+.absolute {
+    position: absolute;
+    top: 0;             /* 0px from top of positioned parent */
+    right: 0;           /* 0px from right of positioned parent */
+}
+
+/* Common pattern - parent relative, child absolute */
+.parent {
+    position: relative; /* Establishes positioning context */
+}
+.child {
+    position: absolute;
+    top: 10px;          /* Relative to .parent, not viewport */
+    left: 10px;
+}
+
+/* FIXED POSITIONING */
+/* Element positioned relative to viewport, stays on scroll */
+.fixed-header {
+    position: fixed;
+    top: 0;             /* Sticks to top of viewport */
+    width: 100%;
+}
+
+/* STICKY POSITIONING */
+/* Element acts relative until scroll threshold, then becomes fixed */
+.sticky-nav {
+    position: sticky;
+    top: 0;             /* Becomes fixed when scrolled to top */
+}
+
+/* Z-INDEX - Stacking order of positioned elements */
+/* Higher number = on top, only works with positioned elements */
+z-index: 1;
+z-index: 10;
+z-index: -1;            /* Behind elements with z-index: 0 or auto */
+
+/* FLOAT - Element floats to side, text wraps around */
+/* Legacy layout method, use flexbox/grid instead */
+float: left;            /* Floats element to left */
+float: right;           /* Floats element to right */
+float: none;            /* Default, no float */
+
+/* CLEAR - Prevents elements from floating beside */
+clear: left;            /* No float elements on left */
+clear: right;           /* No float elements on right */
+clear: both;            /* No float elements on either side */
+
+/* Clearfix - contains floated children */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* OVERFLOW - How content that exceeds box is handled */
+overflow: visible;      /* Default, content not clipped, renders outside box */
+overflow: hidden;       /* Content clipped, no scrollbar */
+overflow: scroll;       /* Scrollbar always shown */
+overflow: auto;         /* Scrollbar only if needed */
+
+/* Individual axes */
+overflow-x: auto;       /* Horizontal overflow */
+overflow-y: scroll;     /* Vertical overflow */
+
+/* OBJECT-FIT - How replaced content (img, video) fits container */
+/* Requires width/height set on element */
+object-fit: fill;       /* Default, stretches to fill (may distort) */
+object-fit: contain;    /* Scales to fit inside, maintains aspect ratio */
+object-fit: cover;      /* Scales to fill, maintains aspect ratio, may crop */
+object-fit: none;       /* Original size, may overflow */
+object-fit: scale-down; /* Smaller of none or contain */
+
+/* OBJECT-POSITION - Where replaced content is positioned in container */
+object-position: center;        /* Default */
+object-position: top left;
+object-position: 50% 50%;
+
+/* ASPECT-RATIO - Maintains aspect ratio */
+aspect-ratio: 16 / 9;           /* Width / height */
+aspect-ratio: 1;                /* Square */

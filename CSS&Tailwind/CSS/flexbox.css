@@ -1,0 +1,109 @@
+/* CSS FLEXBOX - One-dimensional layout (row or column) */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { display: flex; }" */
+
+/* CONTAINER PROPERTIES - Applied to parent */
+
+/* Enable flexbox */
+display: flex;              /* Block-level flex container */
+display: inline-flex;       /* Inline-level flex container */
+
+/* FLEX-DIRECTION - Main axis direction */
+flex-direction: row;        /* Default, left to right */
+flex-direction: row-reverse; /* Right to left */
+flex-direction: column;     /* Top to bottom */
+flex-direction: column-reverse; /* Bottom to top */
+
+/* JUSTIFY-CONTENT - Alignment along main axis */
+justify-content: flex-start;    /* Default, start of main axis */
+justify-content: flex-end;      /* End of main axis */
+justify-content: center;        /* Center of main axis */
+justify-content: space-between; /* Even spacing, no space at edges */
+justify-content: space-around;  /* Even spacing, half-space at edges */
+justify-content: space-evenly;  /* Even spacing including edges */
+
+/* ALIGN-ITEMS - Alignment along cross axis */
+align-items: stretch;       /* Default, stretch to fill container */
+align-items: flex-start;    /* Start of cross axis */
+align-items: flex-end;      /* End of cross axis */
+align-items: center;        /* Center of cross axis */
+align-items: baseline;      /* Align text baselines */
+
+/* FLEX-WRAP - Whether items wrap to new line */
+flex-wrap: nowrap;          /* Default, single line */
+flex-wrap: wrap;            /* Wrap to multiple lines */
+flex-wrap: wrap-reverse;    /* Wrap in reverse */
+
+/* ALIGN-CONTENT - Alignment of wrapped lines (only with wrap) */
+align-content: stretch;     /* Default, lines stretch */
+align-content: flex-start;  /* Lines at start */
+align-content: flex-end;    /* Lines at end */
+align-content: center;      /* Lines centered */
+align-content: space-between;
+align-content: space-around;
+
+/* GAP - Space between items */
+gap: 20px;                  /* Both row and column gap */
+row-gap: 10px;              /* Space between rows */
+column-gap: 20px;           /* Space between columns */
+
+/* FLEX-FLOW - Shorthand for direction and wrap */
+flex-flow: row wrap;
+flex-flow: column nowrap;
+
+/* ITEM PROPERTIES - Applied to children */
+
+/* FLEX-GROW - How much item grows relative to siblings */
+/* 0 = don't grow (default), 1 = grow equally, 2 = grow twice as much */
+flex-grow: 0;               /* Default, don't grow */
+flex-grow: 1;               /* Grow to fill space */
+
+/* FLEX-SHRINK - How much item shrinks relative to siblings */
+/* 1 = shrink equally (default), 0 = don't shrink */
+flex-shrink: 1;             /* Default, can shrink */
+flex-shrink: 0;             /* Don't shrink */
+
+/* FLEX-BASIS - Initial size before growing/shrinking */
+flex-basis: auto;           /* Default, based on content */
+flex-basis: 200px;          /* Fixed starting size */
+flex-basis: 50%;            /* Percentage of container */
+
+/* FLEX - Shorthand for grow, shrink, basis */
+flex: 1;                    /* flex: 1 1 0% (grow, can shrink, no base size) */
+flex: 0 0 200px;            /* Don't grow/shrink, 200px fixed */
+flex: 2 1 auto;             /* Grow 2x, can shrink, auto basis */
+
+/* ALIGN-SELF - Override align-items for individual item */
+align-self: auto;           /* Default, inherit from parent */
+align-self: flex-start;
+align-self: flex-end;
+align-self: center;
+align-self: stretch;
+
+/* ORDER - Change visual order (doesn't affect tab order) */
+/* Default is 0, lower numbers appear first */
+order: 0;                   /* Default */
+order: 1;                   /* Appears after order: 0 */
+order: -1;                  /* Appears before order: 0 */
+
+/* COMMON PATTERNS */
+
+/* Center everything */
+.center {
+    display: flex;
+    justify-content: center;    /* Horizontal */
+    align-items: center;        /* Vertical */
+}
+
+/* Equal width columns */
+.column {
+    flex: 1;                    /* Each takes equal space */
+}
+
+/* Fixed sidebar, flexible content */
+.sidebar {
+    flex: 0 0 200px;            /* 200px fixed width */
+}
+.content {
+    flex: 1;                    /* Takes remaining space */
+}

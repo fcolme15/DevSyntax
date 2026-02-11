@@ -1,0 +1,144 @@
+/* CSS TYPOGRAPHY - Text styling */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { font-family: Arial; }" */
+
+/* FONT FAMILY - Typeface */
+font-family: Arial, sans-serif;             /* Fallback chain */
+font-family: "Times New Roman", serif;      /* Quotes for multi-word names */
+font-family: Georgia, serif;
+font-family: "Courier New", monospace;
+
+/* Generic families (always last in chain) */
+/* serif, sans-serif, monospace, cursive, fantasy */
+
+/* FONT SIZE - Text size */
+font-size: 16px;            /* Absolute pixels */
+font-size: 1.5em;           /* Relative to parent font-size */
+font-size: 1.5rem;          /* Relative to root font-size */
+font-size: 100%;            /* Percentage of parent */
+font-size: larger;          /* Relative keywords: smaller, larger */
+
+/* FONT WEIGHT - Thickness of characters */
+font-weight: normal;        /* 400 */
+font-weight: bold;          /* 700 */
+font-weight: lighter;       /* Relative to parent */
+font-weight: bolder;        /* Relative to parent */
+font-weight: 100;           /* Thin */
+font-weight: 400;           /* Normal */
+font-weight: 700;           /* Bold */
+font-weight: 900;           /* Black */
+
+/* FONT STYLE - Italic or oblique */
+font-style: normal;         /* Default */
+font-style: italic;         /* Cursive style */
+font-style: oblique;        /* Slanted version of normal */
+
+/* FONT VARIANT - Small caps */
+font-variant: normal;       /* Default */
+font-variant: small-caps;   /* Lowercase as small capitals */
+
+/* FONT - Shorthand */
+/* style variant weight size/line-height family */
+font: italic small-caps bold 16px/1.5 Arial, sans-serif;
+font: 16px Arial;           /* Minimal */
+
+/* LINE HEIGHT - Vertical space between lines */
+line-height: 1.5;           /* Multiplier of font-size (recommended) */
+line-height: 24px;          /* Absolute */
+line-height: 150%;          /* Percentage of font-size */
+line-height: normal;        /* Browser default (~1.2) */
+
+/* LETTER SPACING - Space between characters */
+letter-spacing: normal;     /* Default */
+letter-spacing: 2px;        /* Positive = more space */
+letter-spacing: -1px;       /* Negative = tighter */
+
+/* WORD SPACING - Space between words */
+word-spacing: normal;       /* Default */
+word-spacing: 4px;
+word-spacing: -2px;
+
+/* TEXT ALIGN - Horizontal alignment */
+text-align: left;           /* Default */
+text-align: right;
+text-align: center;
+text-align: justify;        /* Stretches lines to full width */
+
+/* TEXT DECORATION - Underline, overline, line-through */
+text-decoration: none;                  /* Remove decoration */
+text-decoration: underline;             /* Line below text */
+text-decoration: overline;              /* Line above text */
+text-decoration: line-through;          /* Strikethrough */
+text-decoration: underline dotted red;  /* Style and color */
+
+/* Individual properties */
+text-decoration-line: underline;
+text-decoration-style: solid;           /* solid, double, dotted, dashed, wavy */
+text-decoration-color: red;
+text-decoration-thickness: 2px;
+
+/* TEXT TRANSFORM - Capitalization */
+text-transform: none;       /* Default */
+text-transform: uppercase;  /* ALL CAPS */
+text-transform: lowercase;  /* all lowercase */
+text-transform: capitalize; /* First Letter Of Each Word */
+
+/* TEXT INDENT - First line indentation */
+text-indent: 0;             /* Default */
+text-indent: 20px;
+text-indent: 2em;
+
+/* TEXT SHADOW - Shadow behind text */
+text-shadow: 2px 2px 4px rgba(0,0,0,0.5);  /* x-offset y-offset blur color */
+text-shadow: 1px 1px black, 2px 2px blue;  /* Multiple shadows */
+text-shadow: none;
+
+/* VERTICAL ALIGN - Inline/table-cell vertical alignment */
+/* Only works on inline, inline-block, or table-cell elements */
+vertical-align: baseline;   /* Default */
+vertical-align: top;
+vertical-align: middle;
+vertical-align: bottom;
+vertical-align: text-top;
+vertical-align: text-bottom;
+vertical-align: sub;        /* Subscript */
+vertical-align: super;      /* Superscript */
+
+/* WHITE SPACE - How whitespace/line breaks are handled */
+white-space: normal;        /* Default, collapse whitespace, wrap text */
+white-space: nowrap;        /* Collapse whitespace, no wrapping */
+white-space: pre;           /* Preserve whitespace, no wrapping */
+white-space: pre-wrap;      /* Preserve whitespace, wrap text */
+white-space: pre-line;      /* Collapse whitespace, preserve line breaks, wrap */
+
+/* WORD BREAK - How words break at line end */
+word-break: normal;         /* Default, break at allowed points */
+word-break: break-all;      /* Break anywhere, even mid-word */
+word-break: keep-all;       /* Don't break words */
+
+/* OVERFLOW WRAP - Break long words */
+overflow-wrap: normal;      /* Default, break at word boundaries */
+overflow-wrap: break-word;  /* Break long words if needed */
+
+/* TEXT OVERFLOW - How overflow text is shown */
+/* Requires: white-space: nowrap; overflow: hidden; */
+text-overflow: clip;        /* Default, cut off */
+text-overflow: ellipsis;    /* Show ... */
+
+/* Ellipsis pattern */
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* DIRECTION - Text direction */
+direction: ltr;             /* Left to right (default) */
+direction: rtl;             /* Right to left (Arabic, Hebrew) */
+
+/* COLOR - Text color */
+color: black;
+color: #000000;
+color: rgb(0, 0, 0);
+color: rgba(0, 0, 0, 0.5);  /* With transparency */
+color: hsl(0, 0%, 0%);

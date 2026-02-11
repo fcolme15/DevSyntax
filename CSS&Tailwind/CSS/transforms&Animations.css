@@ -1,0 +1,171 @@
+/* CSS TRANSFORMS AND ANIMATIONS - Movement and transitions */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { transform: translateX(50px); }" */
+
+/* TRANSFORM - Modify element position/size/rotation without affecting layout */
+
+/* Translate - move element */
+transform: translateX(50px);            /* Move right 50px */
+transform: translateY(-20px);           /* Move up 20px */
+transform: translate(50px, -20px);      /* Move right 50px, up 20px */
+transform: translateZ(100px);           /* Move forward in 3D space */
+transform: translate3d(50px, -20px, 100px); /* 3D translate */
+
+/* Scale - resize element */
+transform: scaleX(2);                   /* 2x width */
+transform: scaleY(0.5);                 /* Half height */
+transform: scale(2);                    /* 2x both dimensions */
+transform: scale(2, 0.5);               /* 2x width, half height */
+transform: scaleZ(2);                   /* 3D depth scale */
+transform: scale3d(2, 0.5, 1);          /* 3D scale */
+
+/* Rotate - rotate element */
+transform: rotate(45deg);               /* Clockwise 45 degrees */
+transform: rotate(-45deg);              /* Counter-clockwise */
+transform: rotateX(45deg);              /* Around X axis */
+transform: rotateY(45deg);              /* Around Y axis */
+transform: rotateZ(45deg);              /* Around Z axis (same as rotate) */
+transform: rotate3d(1, 1, 0, 45deg);    /* Around custom axis */
+
+/* Skew - slant element */
+transform: skewX(20deg);                /* Horizontal slant */
+transform: skewY(10deg);                /* Vertical slant */
+transform: skew(20deg, 10deg);          /* Both */
+
+/* Multiple transforms - space separated */
+transform: translate(50px, 100px) rotate(45deg) scale(1.5);
+
+/* TRANSFORM ORIGIN - Point around which transform happens */
+transform-origin: center;               /* Default, 50% 50% */
+transform-origin: top left;
+transform-origin: bottom right;
+transform-origin: 50% 50%;              /* Percentages */
+transform-origin: 100px 50px;           /* Pixels from top-left */
+
+/* PERSPECTIVE - 3D depth perception for child elements */
+/* Applied to parent element */
+perspective: 1000px;                    /* Lower = more dramatic */
+perspective-origin: 50% 50%;            /* Vanishing point */
+
+/* BACKFACE VISIBILITY - Show/hide back of rotated 3D element */
+backface-visibility: visible;           /* Default */
+backface-visibility: hidden;            /* Hide when rotated away */
+
+/* TRANSITION - Smooth change between states */
+
+/* Individual properties */
+transition-property: all;               /* Which properties animate (all, none, or specific) */
+transition-duration: 0.3s;              /* How long animation takes */
+transition-timing-function: ease;       /* Speed curve */
+transition-delay: 0s;                   /* Delay before starting */
+
+/* Timing functions */
+/* ease (default), linear, ease-in, ease-out, ease-in-out */
+/* cubic-bezier(n,n,n,n) - custom curve */
+/* steps(n) - stepwise animation */
+
+/* Shorthand - property duration timing-function delay */
+transition: all 0.3s ease 0s;
+transition: width 0.5s linear;
+transition: transform 0.3s ease-in-out;
+
+/* Multiple properties */
+transition: width 0.3s, height 0.5s, opacity 0.2s;
+
+/* ANIMATION - Keyframe-based animation */
+
+/* Define keyframes */
+@keyframes slidein {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Percentage keyframes */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Apply animation */
+animation-name: slidein;                /* Keyframe name */
+animation-duration: 1s;                 /* Animation length */
+animation-timing-function: ease;        /* Speed curve */
+animation-delay: 0s;                    /* Delay before start */
+animation-iteration-count: 1;           /* How many times (number or infinite) */
+animation-direction: normal;            /* normal, reverse, alternate, alternate-reverse */
+animation-fill-mode: none;              /* none, forwards, backwards, both */
+animation-play-state: running;          /* running or paused */
+
+/* Fill mode */
+/* none: default state before/after */
+/* forwards: keep final keyframe state */
+/* backwards: apply first keyframe during delay */
+/* both: both forwards and backwards */
+
+/* Direction */
+/* normal: 0% to 100% */
+/* reverse: 100% to 0% */
+/* alternate: 0% to 100%, then 100% to 0% */
+/* alternate-reverse: 100% to 0%, then 0% to 100% */
+
+/* Shorthand - name duration timing delay count direction fill play-state */
+animation: slidein 1s ease 0s 1 normal forwards running;
+animation: bounce 2s infinite;
+animation: fade 0.5s ease-in-out 0.2s forwards;
+
+/* Multiple animations */
+animation: slide 1s, fade 0.5s;
+
+/* WILL-CHANGE - Optimize animations */
+/* Hints browser which properties will change, improves performance */
+will-change: transform;
+will-change: opacity;
+will-change: transform, opacity;
+will-change: auto;                      /* Default, no optimization */
+
+/* COMMON PATTERNS */
+
+/* Fade in */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Hover scale */
+.scale-hover {
+    transition: transform 0.3s;
+}
+.scale-hover:hover {
+    transform: scale(1.1);
+}
+
+/* Spin */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Slide and fade */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,164 @@
+/* CSS GRID - Two-dimensional layout (rows and columns) */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { display: grid; }" */
+
+/* CONTAINER PROPERTIES - Applied to parent */
+
+/* Enable grid */
+display: grid;              /* Block-level grid container */
+display: inline-grid;       /* Inline-level grid container */
+
+/* GRID-TEMPLATE-COLUMNS - Define column tracks */
+grid-template-columns: 100px 200px 100px;   /* 3 columns with fixed widths */
+grid-template-columns: 1fr 2fr 1fr;         /* 3 columns, middle is 2x wider (fr = fraction) */
+grid-template-columns: repeat(3, 1fr);      /* 3 equal columns */
+grid-template-columns: repeat(4, 100px);    /* 4 columns, 100px each */
+grid-template-columns: 200px 1fr 200px;     /* Fixed sidebars, flexible center */
+grid-template-columns: repeat(auto-fill, 200px); /* As many 200px columns as fit */
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+
+/* GRID-TEMPLATE-ROWS - Define row tracks */
+/* Same syntax as grid-template-columns */
+grid-template-rows: 100px 200px;
+grid-template-rows: 1fr 2fr;
+grid-template-rows: repeat(3, 100px);
+
+/* GAP - Space between grid cells */
+gap: 20px;                  /* Both row and column gap */
+row-gap: 10px;              /* Space between rows */
+column-gap: 20px;           /* Space between columns */
+
+/* GRID-AUTO-ROWS - Size of implicitly created rows */
+grid-auto-rows: 100px;      /* New rows are 100px tall */
+grid-auto-rows: minmax(100px, auto); /* Min 100px, grows with content */
+
+/* GRID-AUTO-COLUMNS - Size of implicitly created columns */
+grid-auto-columns: 200px;
+
+/* GRID-AUTO-FLOW - How auto-placed items flow */
+grid-auto-flow: row;        /* Default, fill rows first */
+grid-auto-flow: column;     /* Fill columns first */
+grid-auto-flow: dense;      /* Fill gaps with smaller items */
+
+/* JUSTIFY-ITEMS - Align items within cell horizontally */
+justify-items: start;       /* Align to start of cell */
+justify-items: end;         /* Align to end of cell */
+justify-items: center;      /* Center in cell */
+justify-items: stretch;     /* Default, stretch to fill cell width */
+
+/* ALIGN-ITEMS - Align items within cell vertically */
+align-items: start;
+align-items: end;
+align-items: center;
+align-items: stretch;       /* Default, stretch to fill cell height */
+
+/* JUSTIFY-CONTENT - Align entire grid horizontally within container */
+justify-content: start;     /* Default */
+justify-content: end;
+justify-content: center;
+justify-content: space-between;
+justify-content: space-around;
+justify-content: space-evenly;
+
+/* ALIGN-CONTENT - Align entire grid vertically within container */
+align-content: start;       /* Default */
+align-content: end;
+align-content: center;
+align-content: space-between;
+align-content: space-around;
+align-content: space-evenly;
+
+/* GRID-TEMPLATE-AREAS - Named grid regions */
+grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+/* Use with grid-area on items */
+
+/* ITEM PROPERTIES - Applied to children */
+
+/* GRID-COLUMN - Span columns */
+grid-column: 1 / 3;         /* Start at line 1, end at line 3 (spans 2 columns) */
+grid-column: 1 / span 2;    /* Start at line 1, span 2 columns */
+grid-column: 2 / -1;        /* Start at line 2, end at last line */
+
+/* Individual properties */
+grid-column-start: 1;
+grid-column-end: 3;
+
+/* GRID-ROW - Span rows */
+/* Same syntax as grid-column */
+grid-row: 1 / 3;
+grid-row: 1 / span 2;
+grid-row-start: 1;
+grid-row-end: 3;
+
+/* GRID-AREA - Shorthand for row-start / col-start / row-end / col-end */
+grid-area: 1 / 1 / 3 / 3;   /* Row 1-3, Column 1-3 */
+
+/* Or use named area from grid-template-areas */
+grid-area: header;
+
+/* JUSTIFY-SELF - Override justify-items for individual item */
+justify-self: start;
+justify-self: end;
+justify-self: center;
+justify-self: stretch;
+
+/* ALIGN-SELF - Override align-items for individual item */
+align-self: start;
+align-self: end;
+align-self: center;
+align-self: stretch;
+
+/* ORDER - Change visual order */
+order: 0;                   /* Default */
+order: 1;
+
+/* SIZING FUNCTIONS */
+
+/* fr - fraction of available space */
+/* 1fr = 1 part, 2fr = 2 parts */
+
+/* minmax(min, max) - size between min and max */
+minmax(100px, 1fr);         /* Min 100px, max 1fr */
+minmax(0, 100px);           /* Max 100px */
+
+/* fit-content(max) - size to content, max limit */
+fit-content(200px);         /* Size to content, max 200px */
+
+/* auto - size to content */
+
+/* min-content - smallest size without overflow */
+/* max-content - largest size based on content */
+
+/* COMMON PATTERNS */
+
+/* Equal columns */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Responsive columns (auto-fill creates as many as fit) */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Named areas layout */
+.layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+}
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }

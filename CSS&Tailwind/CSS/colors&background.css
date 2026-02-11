@@ -1,0 +1,146 @@
+/* CSS COLORS AND BACKGROUNDS - Color formats and background properties */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { color: red; }" */
+/* COLOR FORMATS */
+
+/* Named colors */
+color: red;
+color: blue;
+color: transparent;
+
+/* Hexadecimal - #RRGGBB or #RGB */
+color: #ff0000;             /* Red */
+color: #ffffff;             /* White */
+
+/* Hex with alpha - #RRGGBBAA */
+color: #ff0000ff;           /* Red, fully opaque */
+color: #ff000080;           /* Red, 50% transparent */
+
+/* RGB - rgb(red, green, blue) values 0-255 */
+color: rgb(255, 0, 0);      /* Red */
+color: rgb(0, 255, 0);      /* Green */
+color: rgb(0, 0, 255);      /* Blue */
+
+/* RGBA - rgb with alpha (transparency) 0-1 */
+color: rgba(255, 0, 0, 1);      /* Red, fully opaque */
+color: rgba(255, 0, 0, 0.5);    /* Red, 50% transparent */
+color: rgba(0, 0, 0, 0);        /* Fully transparent */
+
+/* HSL - hsl(hue, saturation%, lightness%) */
+/* Hue: 0-360 (0=red, 120=green, 240=blue) */
+/* Saturation: 0-100% (0=gray, 100=full color) */
+/* Lightness: 0-100% (0=black, 50=normal, 100=white) */
+color: hsl(0, 100%, 50%);       /* Red */
+color: hsl(120, 100%, 50%);     /* Green */
+color: hsl(240, 100%, 50%);     /* Blue */
+
+/* HSLA - hsl with alpha */
+color: hsla(0, 100%, 50%, 0.5); /* Red, 50% transparent */
+
+/* BACKGROUND COLOR - Solid color behind content */
+background-color: red;
+background-color: #ff0000;
+background-color: rgba(255, 0, 0, 0.5);
+background-color: transparent;  /* Default */
+
+/* BACKGROUND IMAGE - Image behind content */
+background-image: url('image.jpg');
+background-image: url('../images/photo.png');
+background-image: none;         /* Default */
+
+/* Multiple backgrounds - first is top layer */
+background-image: url('top.png'), url('bottom.jpg');
+
+/* BACKGROUND REPEAT - How background image repeats */
+background-repeat: repeat;      /* Default, tiles in both directions */
+background-repeat: repeat-x;    /* Horizontal only */
+background-repeat: repeat-y;    /* Vertical only */
+background-repeat: no-repeat;   /* Single image */
+background-repeat: space;       /* Repeat with even spacing */
+background-repeat: round;       /* Repeat and scale to fit */
+
+/* BACKGROUND POSITION - Where background image is positioned */
+background-position: left top;      /* Keywords */
+background-position: center;        /* Center horizontally and vertically */
+background-position: right bottom;
+background-position: 50% 50%;       /* Percentages (horizontal vertical) */
+background-position: 10px 20px;     /* Pixels from top-left */
+
+/* BACKGROUND SIZE - Size of background image */
+background-size: auto;          /* Default, image natural size */
+background-size: cover;         /* Scale to cover entire element, may crop */
+background-size: contain;       /* Scale to fit inside element, may show whitespace */
+background-size: 100px 200px;   /* Specific width height */
+background-size: 50% 50%;       /* Percentage of element */
+
+/* BACKGROUND ATTACHMENT - Scrolls with content or fixed */
+background-attachment: scroll;  /* Default, scrolls with content */
+background-attachment: fixed;   /* Fixed relative to viewport */
+background-attachment: local;   /* Fixed relative to element content */
+
+/* BACKGROUND ORIGIN - Where background is positioned from */
+background-origin: padding-box; /* Default, starts at padding edge */
+background-origin: border-box;  /* Starts at border edge */
+background-origin: content-box; /* Starts at content edge */
+
+/* BACKGROUND CLIP - Where background is painted */
+background-clip: border-box;    /* Default, extends to border edge */
+background-clip: padding-box;   /* Clips at padding edge */
+background-clip: content-box;   /* Clips at content edge */
+background-clip: text;          /* Clips to text (use with -webkit- prefix) */
+
+/* BACKGROUND - Shorthand */
+/* color image repeat position / size */
+background: red url('bg.jpg') no-repeat center / cover;
+background: #fff url('pattern.png') repeat-x;
+
+/* GRADIENTS - Generated images */
+
+/* Linear gradient - color transition in straight line */
+background: linear-gradient(red, blue);                     /* Top to bottom */
+background: linear-gradient(to right, red, blue);           /* Left to right */
+background: linear-gradient(to bottom right, red, blue);    /* Diagonal */
+background: linear-gradient(45deg, red, blue);              /* Angle in degrees */
+background: linear-gradient(red, yellow, blue);             /* Multiple colors */
+background: linear-gradient(red 0%, yellow 50%, blue 100%); /* Color stops */
+
+/* Radial gradient - color transition from center point */
+background: radial-gradient(red, blue);                     /* Circle from center */
+background: radial-gradient(circle, red, blue);
+background: radial-gradient(ellipse, red, blue);
+background: radial-gradient(at top left, red, blue);        /* Origin position */
+background: radial-gradient(circle at center, red 0%, blue 100%);
+
+/* Conic gradient - color transition around center */
+background: conic-gradient(red, yellow, green, blue, red);
+background: conic-gradient(from 45deg, red, blue);
+
+/* Repeating gradients */
+background: repeating-linear-gradient(red, blue 20px);
+background: repeating-radial-gradient(red, blue 20px);
+
+/* OPACITY - Transparency of entire element */
+/* Affects element and all children */
+opacity: 1;                 /* Default, fully opaque */
+opacity: 0.5;               /* 50% transparent */
+opacity: 0;                 /* Fully transparent */
+
+/* MIX-BLEND-MODE - How element blends with background */
+mix-blend-mode: normal;     /* Default */
+mix-blend-mode: multiply;
+mix-blend-mode: screen;
+mix-blend-mode: overlay;
+/* Many more: darken, lighten, color-dodge, color-burn, etc. */
+
+/* FILTER - Visual effects */
+filter: blur(5px);
+filter: brightness(1.2);    /* 1 = normal, >1 = brighter, <1 = darker */
+filter: contrast(1.5);
+filter: grayscale(100%);    /* 0% = color, 100% = grayscale */
+filter: hue-rotate(90deg);  /* Shift colors */
+filter: invert(100%);       /* Invert colors */
+filter: saturate(2);        /* Color intensity */
+filter: sepia(100%);        /* Sepia tone */
+
+/* Multiple filters */
+filter: blur(5px) brightness(1.2) contrast(1.5);

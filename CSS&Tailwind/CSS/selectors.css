@@ -1,0 +1,121 @@
+/* CSS SELECTORS - Targeting elements */
+
+/* BASIC SELECTORS */
+
+/* Element selector - targets all elements of that type */
+p { }
+div { }
+h1 { }
+
+/* Class selector - targets elements with class attribute */
+.classname { }
+.button { }
+
+/* ID selector - targets element with specific id (should be unique) */
+#unique-id { }
+#header { }
+
+/* Universal selector - targets all elements */
+* { }
+
+/* ATTRIBUTE SELECTORS */
+
+/* Has attribute - element with attribute present */
+[disabled] { }
+[required] { }
+
+/* Exact match - attribute equals exact value */
+[type="text"] { }
+[href="https://example.com"] { }
+
+/* Contains word - attribute contains word in space-separated list */
+[class~="highlight"] { }
+
+/* Starts with - attribute value starts with string */
+[href^="https"] { }
+[class^="btn-"] { }
+
+/* Ends with - attribute value ends with string */
+[href$=".pdf"] { }
+[src$=".jpg"] { }
+
+/* Contains substring - attribute contains substring anywhere */
+[href*="example"] { }
+
+/* COMBINATORS */
+
+/* Descendant - all children/grandchildren at any level */
+div p { }
+.container span { }
+
+/* Direct child - only immediate children */
+div > p { }
+ul > li { }
+
+/* Adjacent sibling - immediately following sibling */
+h1 + p { }
+
+/* General sibling - all following siblings at same level */
+h1 ~ p { }
+
+/* PSEUDO-CLASSES - State or position based */
+
+/* Link states */
+a:link { }        /* Unvisited link */
+a:visited { }     /* Visited link */
+a:hover { }       /* Mouse over */
+a:active { }      /* Being clicked */
+a:focus { }       /* Keyboard focus */
+
+/* Form states */
+input:enabled { }
+input:disabled { }
+input:checked { }     /* Checked checkbox/radio */
+input:required { }
+input:optional { }
+input:valid { }       /* Passes validation */
+input:invalid { }     /* Fails validation */
+input:focus { }
+
+/* Structural pseudo-classes */
+li:first-child { }    /* First child of parent */
+li:last-child { }     /* Last child of parent */
+li:nth-child(2) { }   /* Second child */
+li:nth-child(odd) { } /* Odd children (1, 3, 5...) */
+li:nth-child(even) { }/* Even children (2, 4, 6...) */
+li:nth-child(3n) { }  /* Every third (3, 6, 9...) */
+li:nth-child(3n+1) { }/* Every third starting at 1 (1, 4, 7...) */
+
+p:first-of-type { }   /* First <p> among siblings */
+p:last-of-type { }    /* Last <p> among siblings */
+p:nth-of-type(2) { }  /* Second <p> among siblings */
+
+div:only-child { }    /* Only child of parent */
+p:only-of-type { }    /* Only <p> among siblings */
+
+div:empty { }         /* No children (including text) */
+
+/* Root and negation */
+:root { }             /* HTML element, used for CSS variables */
+:not(.classname) { }  /* Elements without class */
+:not(p) { }           /* All elements except <p> */
+
+/* PSEUDO-ELEMENTS - Style parts of elements */
+
+p::before { content: "→ "; }  /* Insert content before element */
+p::after { content: " ←"; }   /* Insert content after element */
+p::first-line { }             /* First line of text */
+p::first-letter { }           /* First letter of text */
+::selection { }               /* User-selected text */
+::placeholder { }             /* Input placeholder text */
+
+/* GROUPING */
+
+/* Multiple selectors - same styles applied to all */
+h1, h2, h3 { }
+.class1, .class2, #id1 { }
+
+/* SPECIFICITY - Which rule wins when conflict */
+/* Higher specificity = higher priority */
+/* Inline style (1000) > ID (100) > Class (10) > Element (1) */
+/* Example: #id.class p = 100 + 10 + 1 = 111 */

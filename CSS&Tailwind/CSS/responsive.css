@@ -1,0 +1,224 @@
+/* CSS RESPONSIVE DESIGN - Media queries and responsive units */
+/*Using property syntax without a selector for real css 
+needs to be wrapped in "selector { font-size: calc(16px + 0.5vw); }" */
+
+/* MEDIA QUERIES - Conditional CSS based on device characteristics */
+
+/* Basic syntax */
+@media (condition) {
+    /* CSS rules */
+}
+
+/* WIDTH QUERIES - Most common */
+
+/* Min-width - styles apply at this width and above (mobile-first) */
+@media (min-width: 768px) {
+    /* Tablets and larger */
+}
+
+/* Max-width - styles apply at this width and below (desktop-first) */
+@media (max-width: 767px) {
+    /* Mobile only */
+}
+
+/* Range - between two widths */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Tablets only */
+}
+
+/* COMMON BREAKPOINTS */
+/* Mobile: < 768px */
+/* Tablet: 768px - 1023px */
+/* Desktop: 1024px+ */
+
+@media (min-width: 768px) {
+    /* Tablet and desktop */
+}
+
+@media (min-width: 1024px) {
+    /* Desktop only */
+}
+
+/* HEIGHT QUERIES */
+@media (min-height: 600px) {
+    /* Tall screens */
+}
+
+@media (max-height: 500px) {
+    /* Short screens */
+}
+
+/* ORIENTATION */
+@media (orientation: portrait) {
+    /* Height > width */
+}
+
+@media (orientation: landscape) {
+    /* Width > height */
+}
+
+/* RESOLUTION - Target high-DPI/retina displays */
+@media (min-resolution: 2dppx) {
+    /* Retina screens (2x pixel density) */
+}
+
+@media (min-resolution: 192dpi) {
+    /* Same as 2dppx */
+}
+
+/* COMBINING CONDITIONS */
+
+/* AND - all conditions must be true */
+@media (min-width: 768px) and (orientation: landscape) {
+    /* Tablet landscape */
+}
+
+/* OR - comma-separated, any condition true */
+@media (max-width: 767px), (orientation: portrait) {
+    /* Mobile OR portrait */
+}
+
+/* NOT - inverts condition */
+@media not (min-width: 768px) {
+    /* Everything except tablet+ */
+}
+
+/* PRINT MEDIA */
+@media print {
+    /* Styles for printing */
+    .no-print {
+        display: none;
+    }
+}
+
+/* SCREEN VS ALL */
+@media screen and (min-width: 768px) {
+    /* Screen devices only */
+}
+
+@media all and (min-width: 768px) {
+    /* All media types (default if not specified) */
+}
+
+/* VIEWPORT UNITS - Relative to viewport size */
+
+/* vw - 1% of viewport width */
+width: 50vw;                    /* 50% of viewport width */
+font-size: 5vw;
+
+/* vh - 1% of viewport height */
+height: 100vh;                  /* Full viewport height */
+
+/* vmin - 1% of smaller viewport dimension */
+width: 50vmin;                  /* 50% of smaller dimension */
+
+/* vmax - 1% of larger viewport dimension */
+width: 50vmax;                  /* 50% of larger dimension */
+
+/* RELATIVE UNITS */
+
+/* em - relative to element's font-size */
+/* If font-size is 16px, 2em = 32px */
+padding: 2em;                   /* 2x current font-size */
+
+/* rem - relative to root (html) font-size */
+/* Consistent across all elements */
+font-size: 1.5rem;              /* 1.5x root font-size */
+padding: 2rem;
+
+/* % - percentage of parent element */
+width: 50%;                     /* 50% of parent width */
+
+/* RESPONSIVE IMAGES */
+
+/* Max-width keeps image from exceeding container */
+img {
+    max-width: 100%;
+    height: auto;               /* Maintains aspect ratio */
+}
+
+/* Picture element with different images */
+/*
+<picture>
+    <source media="(min-width: 1024px)" srcset="large.jpg">
+    <source media="(min-width: 768px)" srcset="medium.jpg">
+    <img src="small.jpg" alt="Description">
+</picture>
+*/
+
+/* CONTAINER QUERIES - Responsive based on parent size */
+/* Experimental, limited browser support */
+
+@container (min-width: 400px) {
+    /* Styles when parent container is 400px+ wide */
+}
+
+/* FLUID TYPOGRAPHY - Font size scales with viewport */
+
+/* Using calc() */
+font-size: calc(16px + 0.5vw);  /* Base 16px, grows with viewport */
+
+/* Using clamp() - min, preferred, max */
+font-size: clamp(16px, 2vw, 24px); /* Min 16px, max 24px, prefers 2vw */
+
+/* RESPONSIVE LAYOUT PATTERNS */
+
+/* Mobile-first approach - start small, add complexity */
+.container {
+    width: 100%;                /* Mobile default */
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;           /* Tablet */
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 970px;           /* Desktop */
+    }
+}
+
+/* Desktop-first approach - start large, remove complexity */
+.container {
+    width: 1200px;              /* Desktop default */
+}
+
+@media (max-width: 1023px) {
+    .container {
+        width: 960px;           /* Tablet */
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 100%;            /* Mobile */
+    }
+}
+
+/* RESPONSIVE GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;         /* Mobile: 1 column */
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+    }
+}
+
+/* AUTO-FIT GRID - Responsive without media queries */
+.auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
