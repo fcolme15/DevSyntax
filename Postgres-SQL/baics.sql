@@ -10,7 +10,7 @@ SELECT
     first_name,
     last_name,
     salary * 1.1          AS adjusted_salary,   -- alias with AS
-    department || ' Dept'  AS dept_label,        -- string concat with ||
+    department || ' Dept'  AS dept_label,        -- string concat with || -> "*Name* Dept"
     42                     AS literal_number,
     true                   AS literal_bool
 FROM employees;
