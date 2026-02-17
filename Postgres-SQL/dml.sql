@@ -151,7 +151,7 @@ ON CONFLICT (employee_id) DO UPDATE
 SET
     first_name = EXCLUDED.first_name,   -- EXCLUDED holds the values from the attempted INSERT
     salary     = EXCLUDED.salary,
-    updated_at = NOW();
+    updated_at = NOW(); -- Typical for col to exist in tables
 
 -- Conditional upsert — only update if a condition is met
 INSERT INTO product_prices (product_id, price, updated_at)
