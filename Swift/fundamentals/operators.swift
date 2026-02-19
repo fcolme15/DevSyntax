@@ -1,5 +1,3 @@
-//Fundamentals/Operators.swift
-
 func operatorsOverview() {
     arithmeticOperators()
     comparisonOperators()
