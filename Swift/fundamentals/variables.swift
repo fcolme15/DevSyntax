@@ -1,7 +1,6 @@
 func variablesOverview() {
     varVsLet()
     typeAnnotationAndInference()
-    numericTypes()
     typeSafety()
     multipleAssignment()
     printingAndInterpolation()
@@ -46,27 +45,6 @@ func typeAnnotationAndInference() {
     //Must declare type since no initial value
     var laterAssigned: Int 
     laterAssigned = 5
-}
-
-
-func numericTypes() {
-    var integer: Int = 42 //Platform-sized: 64-bit on 64-bit systems
-    var int8Val: Int8 = 127 //Range: -128 to 127
-    var int16Val: Int16 = 32767
-    var int32Val: Int32 = 2_147_483_647 //Underscores for readability (ignored by compiler)
-    var int64Val: Int64 = 9_223_372_036_854_775_807
-
-    var unsignedInt: UInt = 42 //Unsigned: 0 to max
-    var unsignedInt8: UInt8 = 255 //Range: 0 to 255
-
-    var floatVal: Float = 3.14 //32-bit, ~6 decimal places
-    var doubleVal: Double = 3.141592653589793 //64-bit, ~15 decimal places (default for decimals)
-
-    let decimal = 17
-    let binary = 0b10001 //17 in binary
-    let octal = 0o21 //17 in octal
-    let hex = 0x11 //17 in hex
-    let bigNumber = 1_000_000 //Underscores ignored by compiler, readability only
 }
 
 
