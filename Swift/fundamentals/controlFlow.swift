@@ -20,6 +20,18 @@ func ifElse() {
 
     //if as an expression (Swift 5.9+) - can assign result directly
     let grade = if score >= 90 { "A" } else if score >= 80 { "B" } else { "C" }
+
+    //Optional binding - if let attempts to unwrap an optional, enters block only if value exists
+    let optionalScore: Int? = 85
+    if let optionalScore {
+        print("Score is \(optionalScore)") //optionalScore is Int here, not Int?
+    }
+
+    //Unwrap multiple optionals - all must have values to enter block
+    let optionalName: String? = "Francisco"
+    if let optionalScore, let optionalName {
+        print("\(optionalName): \(optionalScore)")
+    }
 }
 
 
