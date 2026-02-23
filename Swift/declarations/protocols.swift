@@ -1,6 +1,5 @@
 func protocolsOverview() {
     protocolBasics()
-    protocolProperties()
     protocolInheritance()
     protocolExtensions()
     protocolAsType()
@@ -31,7 +30,7 @@ func protocolBasics() {
         func greet() -> String { "Beep boop, I am \(name)" }
     }
 
-    //Conform to multiple protocols with comma separation
+    //Multiple protocols with comma separation
     protocol Farewell {
         func bye() -> String
     }
@@ -41,10 +40,8 @@ func protocolBasics() {
         func greet() -> String { "Hi, I'm \(name)" }
         func bye() -> String { "Goodbye from \(name)" }
     }
-}
-
-
-func protocolProperties() {
+    
+    //Protocol properties
     protocol Vehicle {
         //{ get } - conforming type must provide a readable property (can be let or var)
         var brand: String { get }
@@ -54,12 +51,6 @@ func protocolProperties() {
 
         //Static property requirement
         static var vehicleType: String { get }
-    }
-
-    struct Car: Vehicle {
-        let brand: String //let satisfies { get }
-        var speed: Double //var required for { get set }
-        static var vehicleType: String { "Automobile" }
     }
 }
 
@@ -120,11 +111,6 @@ func protocolExtensions() {
         var name: String
         func greet() -> String { "Beep boop, I am \(name)" } //Overrides default
     }
-
-    let person = Person(name: "Francisco")
-    person.greet() //"Hello, I'm Francisco" - default used
-    person.shout() //"HELLO, I'M FRANCISCO" - extension method
-    Robot(name: "R2D2").greet() //"Beep boop, I am R2D2" - overridden
 }
 
 
