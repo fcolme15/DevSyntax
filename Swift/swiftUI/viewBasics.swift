@@ -113,7 +113,7 @@ struct ButtonExamples: View {
 //COMMON INPUT VIEWS
 //============================================================
 struct InputExamples: View {
-    @State private var text = ""
+    @State private var text = "" //Covered fully in SwiftUI/State.swift
     @State private var isOn = false
     @State private var sliderValue = 0.5
     @State private var selectedDate = Date()
