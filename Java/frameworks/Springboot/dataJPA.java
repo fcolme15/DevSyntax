@@ -11,6 +11,7 @@
 // transactions()
 // relationships()
 // paginationAndSorting()
+// databaseMigrations()
 
 
 // ============================================================
@@ -290,3 +291,91 @@ public class OrderController {
 
 // Sort.by("field").ascending() / .descending()
 // Sort.by("status").ascending().and(Sort.by("createdAt").descending()) — multi-field sort
+
+
+// ============================================================
+// DATABASE MIGRATIONS — FLYWAY AND LIQUIBASE
+// ============================================================
+
+// Schema migrations version-control your database structure alongside your code
+// Required in production — ddl-auto=update is unsafe for real deployments
+// Both tools run pending migrations automatically on app startup
+
+// --- FLYWAY ---
+// Add dependency: spring-boot-starter-flyway (or flyway-core)
+// Spring Boot auto-configures Flyway — no setup needed beyond dependency + migration files
+
+// Migration files live at: src/main/resources/db/migration/
+// Naming convention: V{version}__{description}.sql
+// V1__create_orders_table.sql
+// V2__add_customer_id_to_orders.sql
+// V3__create_customers_table.sql
+
+// Example migration file — V1__create_orders_table.sql:
+// CREATE TABLE orders (
+//     id         BIGSERIAL PRIMARY KEY,
+//     product_name VARCHAR(100) NOT NULL,
+//     status       VARCHAR(20)  NOT NULL,
+//     created_at   TIMESTAMP    NOT NULL DEFAULT NOW()
+// );
+
+// Example migration file — V2__add_customer_email.sql:
+// ALTER TABLE orders ADD COLUMN customer_email VARCHAR(255);
+// UPDATE orders SET customer_email = 'unknown@example.com' WHERE customer_email IS NULL;
+// ALTER TABLE orders ALTER COLUMN customer_email SET NOT NULL;
+
+// Flyway tracks which migrations have run in a flyway_schema_history table
+// On startup: compares applied migrations against files, runs any that are new
+// Never modifies already-applied migrations — only runs new ones
+
+// application.properties for Flyway:
+// spring.flyway.enabled=true                    — enabled by default when dependency present
+// spring.flyway.locations=classpath:db/migration — default location
+// spring.flyway.baseline-on-migrate=true         — use when adding Flyway to existing DB
+// spring.jpa.hibernate.ddl-auto=validate         — let Flyway manage schema, Hibernate only validates
+
+// --- LIQUIBASE ---
+// Add dependency: spring-boot-starter-liquibase (or liquibase-core)
+// Uses a changelog file instead of numbered SQL files — supports XML, YAML, JSON, or SQL format
+
+// Master changelog at: src/main/resources/db/changelog/db.changelog-master.yaml
+//
+// databaseChangeLog:
+//   - include:
+//       file: db/changelog/changes/001-create-orders-table.yaml
+//   - include:
+//       file: db/changelog/changes/002-add-customer-email.yaml
+
+// Individual changeset — 001-create-orders-table.yaml:
+// databaseChangeLog:
+//   - changeSet:
+//       id: 001
+//       author: francisco
+//       changes:
+//         - createTable:
+//             tableName: orders
+//             columns:
+//               - column:
+//                   name: id
+//                   type: BIGINT
+//                   autoIncrement: true
+//                   constraints:
+//                     primaryKey: true
+//               - column:
+//                   name: product_name
+//                   type: VARCHAR(100)
+//                   constraints:
+//                     nullable: false
+
+// application.properties for Liquibase:
+// spring.liquibase.enabled=true
+// spring.liquibase.change-log=classpath:db/changelog/db.changelog-master.yaml
+
+// --- Flyway vs Liquibase ---
+// Flyway   — SQL files only, simpler mental model, less setup, most common choice
+// Liquibase — YAML/XML/JSON changesets, supports rollback natively, more complex but more powerful
+// For most apps Flyway is the right default — simpler and SQL is already familiar
+
+// --- Using with profiles (run different migrations per environment) ---
+// spring.flyway.locations=classpath:db/migration,classpath:db/migration/{spring.profiles.active}
+// Base migrations in db/migration/, environment-specific seed data in db/migration/dev/ etc.
